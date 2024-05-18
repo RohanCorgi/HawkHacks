@@ -45,8 +45,23 @@
     background-color: rgb(226, 227, 254);
     border-radius: 5px;
     padding: 10px;
-    margin: 10px 0; /* Adds some spacing between input fields */
-    width: calc(100% - 40px); /* Ensures inputs take up most of the available space */
+
+}
+
+#enter_quantity {
+    text-align: center;
+    border: solid 1px;
+    background-color: rgb(226, 227, 254);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#search_bar {
+    margin: 10px 0;
+    text-align: center;
+    padding: 10px;
+    width: calc(100% - 40px);
+    display: none;
 }
 
 .all_searches {
