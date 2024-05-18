@@ -57,11 +57,12 @@ body.light-mode .container {
     position: relative;
 }
 
-#list_headerid{
+.list_header{
     border-radius: 10px;
     background-color:rgb(190, 187, 187);
 }
-#list_headerid:hover{
+
+.list_header:hover{
     border-radius: 10px;
     background-color:rgb(163, 160, 160);
 }
