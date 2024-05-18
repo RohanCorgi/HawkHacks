@@ -1,5 +1,4 @@
-/* General container styling */
-.container {
+.container, .shopping-list-container {
     background-color: grey;
     height: auto;
     width: auto;
@@ -97,8 +96,7 @@ body.light-mode #mode-toggle-checkbox {
     margin: auto;
 }
 
-/* Input fields styling */
-#enter_food, #enter_food_shopping, #enter_quantity, #enter_quantity_shopping {
+#enter_food {
     text-align: center;
     border: solid 1px;
     background-color: rgb(226, 227, 254);
@@ -107,8 +105,15 @@ body.light-mode #mode-toggle-checkbox {
     margin-top: 10px;
 }
 
-/* Search bar styling */
-#search_bar, #search_bar_shopping {
+#enter_quantity {
+    text-align: center;
+    border: solid 1px;
+    background-color: rgb(226, 227, 254);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#search_bar {
     margin: 10px 0;
     text-align: center;
     padding: 10px;
