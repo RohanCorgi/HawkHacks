@@ -17,17 +17,11 @@ function addItem() {
         newItem.innerHTML = `
             <span class="item-quantity">${quantity}</span>
             <span class="item-name">${plural(food, quantity)}</span>
-            <input type="date" id="expiry_date_${newItem.id}" class="expiry-date">  <span class="item-expiry"></span>
-            <button class="remove-item" onclick="removeItem(this)">Remove</button>
-            <button class="clear-expiry" onclick="clearExpiry(this)">Clear Expiry</button>
+
         `;
 
         // Update expiry date span on item addition (optional)
-        const expiryDateInput = newItem.querySelector('.expiry-date');
-        expiryDateInput.addEventListener('change', function() {
-            const expirySpan = this.parentElement.querySelector('.item-expiry');
-            expirySpan.textContent = this.value;
-        });
+    
 
         itemList.appendChild(newItem);
     } catch (error) {
@@ -35,16 +29,6 @@ function addItem() {
     }
 }
 
-function removeItem(button) {
-    button.parentElement.remove();
-}
-
-function clearExpiry(button) {
-  const expiryInput = button.parentElement.querySelector('.expiry-date');
-  const expirySpan = button.parentElement.querySelector('.item-expiry');
-  expiryInput.value = "";
-  expirySpan.textContent = "";
-}
 
 document.getElementById('mode-toggle-checkbox').addEventListener('change', function() {
     document.body.classList.toggle('light-mode', this.checked);
