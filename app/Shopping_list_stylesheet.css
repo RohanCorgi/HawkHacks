@@ -103,6 +103,15 @@ body.light-mode #add_header {
 body.light-mode #add_header:hover {
     background-color: rgb(137, 181, 196);
 }
+body.light-mode .list {
+    background-color: rgb(189, 186, 186);
+
+}
+
+body.light-mode #list_header{
+
+    background-color:rgb(190, 187, 187);
+}
 
 .mode-toggle .slider {
     display: block;
@@ -203,7 +212,11 @@ body.light-mode #add_header:hover {
 
 #list_header{
     border-radius: 10px;
-    background-color:rgb(202, 198, 198);
+    background-color:rgb(190, 187, 187);
+}
+#list_header:hover{
+    border-radius: 10px;
+    background-color:rgb(163, 160, 160);
 }
 
 .button-container{
