@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Style.css">
     <title>Pantry App Login/Signup</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/jpg" href="Images/Pantry_169.png">
 </head>
+
 <body>
     <div class="container">
         <div class="title-container">
@@ -16,7 +19,7 @@
                 <div class="content">
                     <a href="index.html">Pantry</a>
                     <a href="shopping_list.html">Shopping List</a>
-                    <a href="Chatbot.html">Chabot</a>
+                    <a href="Chatbot.html">Chatbot</a>
                 </div>
             </div>
             <div class="title">
@@ -31,7 +34,7 @@
         </div>
 
         <div class="all_searches">
-            <input type="type" id="email" class="item-input" placeholder="Enter your email">
+            <input type="email" id="email" class="item-input" placeholder="Enter your email">
             <input type="password" id="password" name="pass" class="item-input" placeholder="Enter your password">
             <input type="text" id="search_bar" placeholder="Search Bar">
             <div id="buttons">
@@ -41,6 +44,66 @@
             <ul id="itemlist" class="list"></ul>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const loginBtn = document.querySelector('.login');
+            const signupBtn = document.querySelector('.signup');
+
+            function getUserData() {
+                return JSON.parse(localStorage.getItem('users')) || [];
+            }
+
+            function saveUserData(users) {
+                localStorage.setItem('users', JSON.stringify(users));
+            }
+
+            function login() {
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+
+                if (!email || !password) {
+                    alert('Please fill out both fields');
+                    return;
+                }
+
+                const users = getUserData();
+                const user = users.find(user => user.email === email && user.password === password);
+
+                if (user) {
+                    alert('Login successful!');
+                } else {
+                    alert('Invalid email or password');
+                }
+            }
+
+            function signup() {
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+
+                if (!email || !password) {
+                    alert('Please fill out both fields');
+                    return;
+                }
+
+                const users = getUserData();
+                const userExists = users.some(user => user.email === email);
+
+                if (userExists) {
+                    alert('User already exists with this email');
+                    return;
+                }
+
+                const newUser = { email, password };
+                users.push(newUser);
+                saveUserData(users);
+                alert('Signup successful!');
+            }
+
+            loginBtn.addEventListener('click', login);
+            signupBtn.addEventListener('click', signup);
+        });
+    </script>
+
     <script src="script.js"></script>
 </body>
 </html>
