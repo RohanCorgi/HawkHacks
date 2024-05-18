@@ -90,8 +90,6 @@ body.light-mode .add-item {
     background-color: lightblue;
 }
 
-
-
 .mode-toggle .slider {
     display: block;
     margin: auto;
@@ -171,106 +169,22 @@ body.light-mode .add-item {
 }
 
 .list {
-    padding: 0;
-    margin: 0;
     text-align: center;
     width: auto;
     border-radius: 10px;
-    width: 100%;
+    width: 400px;
     list-style-type: disc;
+    background-color: darkgrey;
+    height: 350px;
+    border: solid 2px;
+    overflow: scroll;
 }
 
-.list li {
-    background-color: darkgrey;
-    border: solid 2px black;
-    border-radius: 20px;
-    padding: 10px;
-    margin: auto;
-    margin-top: 10px;
-    text-align: center;
-    width: 200px;
-    height: 2px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+
 .mode-toggle .slider {
     display: block;
     margin: auto;
-    border: 2px solid rgb(0, 0, 0); /* Added border style */
-    border-radius: 10px; /* Maintains rounded corners */
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px; 
 }
 
-/* Your existing CSS styles here */
-
-/* Ensure remove button is visible */
-
-.list {
-    padding: 0;
-    margin: 0;
-    text-align: center;
-    width: auto;
-    border-radius: 10px;
-    width: 100%;
-    list-style-type: none; /* Remove bullet points */
-}
-
-.list li {
-    background-color: darkgrey;
-    border: solid 2px black;
-    border-radius: 20px;
-    padding: 10px;
-    margin: auto;
-    margin-top: 10px;
-    text-align: center;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.list li .remove-item {
-    background-color: red;
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 3px 10px;
-    border-radius: 5px;
-}
-
-/* Additional styling for light mode */
-body.light-mode .list li {
-    background-color: lightgrey;
-    color: black;
-}
-
-body.light-mode .list li .remove-item {
-    background-color: darkred;
-}
-
-/* Ensure remove button is visible */
-.list .remove-item {
-    background-color: red;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-/* Additional styling for light mode */
-body.light-mode .list li {
-    background-color: lightgrey;
-    color: black;
-}
-
-body.light-mode .list li .remove-item {
-    background-color: darkred;
-}
-
-.slider{
-    display: inline-block;
-    background-color: rgb(57, 57, 57); /* dark mode slider */
-}
-body.light-mode .slider {
-    background-color: grey;
-}
