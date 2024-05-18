@@ -2,24 +2,33 @@
     src: url(fonts/ChakraPetch-Light.ttf);
     font-family: ChakraPetch;
 }
-@font-face{
+
+@font-face {
     src: url(fonts/Dosis-VariableFont_wght.ttf);
     font-family: Dosis;
 }
-@font-face{
+
+@font-face {
     src: url(fonts/PoetsenOne-Regular.ttf);
     font-family: PoestsenOne;
 }
-@font-face{
+
+@font-face {
     src: url(fonts/TitilliumWeb-Light.ttf);
     font-family: TitilliumWeb;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Dosis', Arial, sans-serif;
     background-color: #333;
-    color: #fff;
+    color: #333;
     transition: background-color 0.3s, color 0.3s;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 body.light-mode {
@@ -30,7 +39,7 @@ body.light-mode {
 .container,
 .shopping-list-container .container,
 .shopping-list-container {
-    background-color: grey;
+    background-color: rgb(153, 153, 153);
     height: auto;
     width: auto;
     max-width: 500px;
@@ -45,36 +54,40 @@ body.light-mode {
 }
 
 body.light-mode .container {
-    background-color: rgb(218, 218, 218);
+    background-color: #f9f9f9;
 }
 
 .title-container {
-    font-family: TitilliumWeb;
+    font-family: 'TitilliumWeb', sans-serif;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     width: 100%;
-    position: relative;
+    margin-bottom: 20px;
 }
 
 .title {
-    background-color: rgb(41, 40, 40);
-    color: white;
+    background-color: #333;
+    color: #fff;
     text-align: center;
     border-radius: 5px;
     padding: 10px;
-    margin: 0 10px;
+    margin: 0;
+    flex-grow: 1;
     margin-right: 10px;
+    font-size: 1.5em;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 body.light-mode .title {
-    background-color: rgb(189, 186, 186);
-    color: black;
+    background-color: #eee;
+    color: #333;
 }
 
 .mode-toggle {
-    top: 10px;
-    right: 10px;
+    position: relative;
+    width: 40px;
+    height: 20px;
 }
 
 .mode-toggle input[type="checkbox"] {
@@ -82,57 +95,162 @@ body.light-mode .title {
 }
 
 .slider {
-    width: 40px;
-    height: 20px;
-    background-color: lightgrey;
+    width: 100%;
+    height: 100%;
+    background-color: #ddd;
     border-radius: 10px;
     position: relative;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .slider::before {
     content: "";
     width: 18px;
     height: 18px;
-    background-color: black;
+    background-color: #333;
     border-radius: 50%;
     position: absolute;
     top: 1px;
     left: 1px;
     background-image: url('Images/moon-removebg-preview.png');
     background-size: cover;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s;
 }
 
 input[type="checkbox"]:checked + .slider::before {
-    background-color: rgb(184, 181, 181);
+    background-color: #ffeb3b;
     transform: translateX(20px);
     background-image: url('Images/sun-removebg-preview.png');
 }
 
 body.light-mode .slider {
-    background-color: grey;
-}
-
-body.light-mode .add-item {
-    background-color: lightblue;
-}
-body.light-mode .add-item:hover {
-    background-color: rgb(137, 181, 196);
-}
-
-#enter_food,
-#enter_food_shopping,
-#email {
-    margin-top: 10px;
+    background-color: #bbb;
 }
 
 .item-input {
     text-align: center;
-    border: solid 1px;
-    background-color: rgb(226, 227, 254);
+    border: solid 1px #ddd;
+    background-color: #f5f5f5;
     border-radius: 5px;
     padding: 10px;
+    width: calc(100% - 22px);
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+#enter_food,
+#enter_quantity {
+    margin-bottom: 10px;
+    background-color: #d1cece;
+    color: black;
+}
+body.light-mode #enter_food:hover, #enter_quantity:hover{
+    background-color: #dcdada;
+}
+
+
+.add-item,
+.More-header {
+    margin: 10px 5px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-item:hover,
+.More-header:hover {
+    background-color: #555;
+}
+
+body.light-mode .add-item,
+body.light-mode .More-header {
+    background-color: #bbb;
+    color: #333;
+}
+
+body.light-mode .add-item:hover,
+body.light-mode .More-header:hover {
+    background-color: #999;
+}
+
+
+body.light-mode .list{
+    background-color: rgb(184, 184, 184);
+}
+
+
+.list_header {
+    border-radius: 10px;
+    background-color: #eee;
+    padding: 10px;
+    margin: 10px;
+    width: calc(100% - 22px);
+    font-size: 1em;
+    border: 1px solid #ddd;
+}
+
+.list_header:hover {
+    background-color: #ddd;
+}
+
+body.light-mode .list_header {
+    background-color: #aaa7a7;
+}
+
+body.light-mode .list_header:hover {
+    background-color: #8a8a8a;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown_button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown img {
+    width: 24px;
+    height: 24px;
+}
+
+.dropdown .content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 100px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: display 0.3s;
+}
+
+.dropdown:hover .content {
+    display: block;
+}
+
+.dropdown a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dropdown a:hover {
+    background-color: #555;
+    color: #fff;
 }
 
 #search_bar {
@@ -143,61 +261,7 @@ body.light-mode .add-item:hover {
     display: none;
 }
 
-.all_searches {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
-.add-item {
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 20px;
-    background-color: rgb(89, 86, 86);
-    cursor: pointer;
-}
-.add-item:hover{
-    background-color: rgb(102, 101, 101);
-}
-
-#open-nav-bar {
-    background-color: rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-}
-
-.dropdown {
-    display: inline-block;
-    align-items: center;
-    gap: 10px;
-}
-
-.dropdown a {
-    display: block;
-    color: black;
-    text-decoration: none;
-    padding: 10px 15px;
-}
-
-.dropdown .content {
-    display: none;
-    position: absolute;
-    background-color: darkgrey;
-    min-width: 100px;
-    box-shadow: 2px 2px 5px;
-}
-
-.dropdown:hover .content {
-    display: block;
-}
-
-#open-nav-bar:hover {
-    background-color: grey;
-}
-
-.dropdown a:hover {
-    background-color: blueviolet;
-}
 
 .list {
     padding: 0;
@@ -210,14 +274,15 @@ body.light-mode .add-item:hover {
 }
 
 .list li {
-    background-color: darkgrey;
+    background-color: rgb(118, 117, 117);
     border: solid 2px black;
     border-radius: 20px;
     padding: 10px;
+    color: black;
     margin: auto;
     margin-top: 10px;
     text-align: center;
-    width: 200px;
+    width: 400px;
     height: 2px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     display: flex;
@@ -258,7 +323,7 @@ body.light-mode .list li .remove-item {
     display: none;
 }
 
-/* Add border to sliders */
+
 .slider {
     border: 1px solid #000;
 }
