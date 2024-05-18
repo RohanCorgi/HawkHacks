@@ -113,4 +113,6 @@ function signup() {
             items: [] //Get a list with objects
         }
     })
+
 }
+
