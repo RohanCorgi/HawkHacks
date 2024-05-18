@@ -7,9 +7,6 @@ function addItem() {
     if (food === '') {
         throw new Error('Please enter a food item');
     }
-    if (food === '') {
-        throw new Error('Please enter a food item');
-    }
 
     const itemList = document.getElementById('itemlist');
 
@@ -27,14 +24,6 @@ function addItem() {
     const newItem = document.createElement('li');
     newItem.id = Math.random().toString(36).substring(2, 15);  // Generate unique ID
 
-    // Constructing the list item HTML
-    newItem.innerHTML = `
-        <span class="item-quantity">${quantity}</span>
-        <span class="item-name">${food}</span>
-        <input type="date" id="expiry_date_${newItem.id}" class="expiry-date">
-        <button class="remove-item" onclick="removeItem(this)">Remove</button>
-        <button class="clear-expiry" onclick="clearExpiry(this)">Clear Expiry</button>
-    `;
     // Constructing the list item HTML
     newItem.innerHTML = `
         <span class="item-quantity">${quantity}</span>
@@ -69,18 +58,6 @@ function removeItem(button) {
     button.parentElement.remove();
 }
 
-function clearExpiry(button) {
-  const expiryInput = button.parentElement.querySelector('.expiry-date');
-  const expirySpan = button.parentElement.querySelector('.item-expiry');
-  expiryInput.value = "";
-  expirySpan.textContent = "";
-}
-
 document.getElementById('mode-toggle-checkbox').addEventListener('change', function() {
     document.body.classList.toggle('light-mode', this.checked);
 });
-
-// Pluralize function
-function plural(word, count) {
-    return count === 1 ? word : word + 's';
-}
