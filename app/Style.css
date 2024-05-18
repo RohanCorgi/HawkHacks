@@ -274,3 +274,17 @@ body.light-mode .list li .remove-item {
 body.light-mode .slider {
     background-color: grey;
 }
+.list li {
+    background-color: darkgrey;
+    border: solid 2px black;
+    border-radius: 20px;
+    padding: 10px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 5px; /* Adjust margin-bottom to reduce the space */
+    text-align: center;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
