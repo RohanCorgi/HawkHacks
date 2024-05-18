@@ -40,7 +40,7 @@ function addItem() {
         expirySpan.textContent = this.value;
     });
 
-    itemList.appendChild(newItem);
+        itemList.appendChild(newItem);
 }
 
 function removeItem(button) {
