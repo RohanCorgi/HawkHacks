@@ -17,7 +17,7 @@ function addItem() {
         newItem.innerHTML = `
             <span class="item-quantity">${quantity}</span>
             <span class="item-name">${plural(food, quantity)}</span>
-
+            <input type="date" id="expiry_date_${newItem.id}" class="expiry-date">  <span class="item-expiry"></span>
         `;
 
         // Update expiry date span on item addition (optional)
