@@ -295,3 +295,13 @@ body.light-mode .slider {
     border-radius: 10px;
     background-color: rgb(173, 174, 174);
 }
+
+.Chatbot-Output{
+    background-color: rgb(91, 91, 91);
+    width: 400px;
+    height: auto;
+    max-height: 1000px;
+    border: solid 2px;
+    border-radius: 10px;
+    display:flex ;
+}
