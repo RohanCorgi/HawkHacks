@@ -1,5 +1,6 @@
 require('dotenv').config()
 const path = require('path')
+const mongoose = require('mongoose')
 const express = require('express')
 const cors = require('cors')
 const app = express()

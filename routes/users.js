@@ -31,7 +31,7 @@ router.post('/api/users/', async (req, res) => {
         const user = new User({
             'email': req.body.email,
             'password': req.body.password,
-            'token': req.body.token,
+            'token': token(),
             'items': req.body.items
         })
         user.save()
