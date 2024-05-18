@@ -1,0 +1,25 @@
+.container{
+    background-color: grey;
+    height: auto;
+    width: auto;
+    max-width: 500px;
+    margin:auto;
+    padding: 20px;
+    border: solid 20px;
+    border-radius:10px ;
+    box-shadow: 5px 5px 5px rgb(0, 0, 0 );
+    top: 50%;
+    left: 50%;
+    text-align: center;
+}
+
+#enter_food{
+    margin: auto;
+    text-align: center;
+}
+
+.title{
+    background-color: black;
+    color: white;
+    text-align: center;
+}
