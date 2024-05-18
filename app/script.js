@@ -3,10 +3,6 @@ function addItem() {
     const quantity = Number(quantityElement.value.trim());
     const foodElement = document.getElementById('enter_food');
     const food = foodElement.value.trim();
-    const quantityElement = document.getElementById('enter_quantity');
-    const quantity = Number(quantityElement.value.trim());
-    const foodElement = document.getElementById('enter_food');
-    const food = foodElement.value.trim();
 
     if (food === '') {
         throw new Error('Please enter a food item');
@@ -54,12 +50,6 @@ function addItem() {
         const expirySpan = this.parentElement.querySelector('.item-expiry');
         expirySpan.textContent = this.value;
     });
-    // Update expiry date span on item addition (optional)
-    const expiryDateInput = newItem.querySelector('.expiry-date');
-    expiryDateInput.addEventListener('change', function() {
-        const expirySpan = this.parentElement.querySelector('.item-expiry');
-        expirySpan.textContent = this.value;
-    });
 
     itemList.appendChild(newItem);
 }
@@ -73,8 +63,6 @@ function clearExpiry(button) {
   const expirySpan = button.parentElement.querySelector('.item-expiry');
   expiryInput.value = "";
   expirySpan.textContent = "";
-}
-        itemList.appendChild(newItem);
 }
 
 function removeItem(button) {
