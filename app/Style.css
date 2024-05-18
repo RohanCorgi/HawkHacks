@@ -286,10 +286,12 @@ body.light-mode .slider {
     justify-content: space-evenly;
 }
 
-#buttons {
-    display: flex;
+.signup {
+    border-radius: 10px;
+    background-color: rgb(173, 174, 174);
 }
 
 .login {
-    
+    border-radius: 10px;
+    background-color: rgb(173, 174, 174);
 }
