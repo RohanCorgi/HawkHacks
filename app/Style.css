@@ -1,3 +1,4 @@
+/* General container styling */
 .container {
     background-color: grey;
     height: auto;
@@ -13,6 +14,7 @@
     align-items: center; 
 }
 
+/* Title container styling */
 .title-container {
     display: flex;
     align-items: center; 
@@ -21,6 +23,7 @@
     position: relative;
 }
 
+/* Title styling */
 .title {
     background-color: black;
     color: white;
@@ -31,6 +34,7 @@
     margin-right: 10px;
 }
 
+/* Mode toggle switch styling */
 .mode-toggle {
     top: 10px;
     right: 10px;
@@ -65,6 +69,7 @@ input[type="checkbox"]:checked + .slider::before {
     transform: translateX(20px);
 }
 
+/* Light mode styles */
 body.light-mode {
     background-color: white;
     color: black;
@@ -83,16 +88,17 @@ body.light-mode .add-item {
     background-color: lightblue;
 }
 
-body.light-mode #mode-toggle-checkbox{
-    background-color: black      ;
+body.light-mode #mode-toggle-checkbox {
+    background-color: black;
 }
 
-.mode-toggle .slider{
+.mode-toggle .slider {
     display: block;
     margin: auto;
 }
 
-#enter_food {
+/* Input fields styling */
+#enter_food, #enter_food_shopping, #enter_quantity, #enter_quantity_shopping {
     text-align: center;
     border: solid 1px;
     background-color: rgb(226, 227, 254);
@@ -101,15 +107,8 @@ body.light-mode #mode-toggle-checkbox{
     margin-top: 10px;
 }
 
-#enter_quantity {
-    text-align: center;
-    border: solid 1px;
-    background-color: rgb(226, 227, 254);
-    border-radius: 5px;
-    padding: 10px;
-}
-
-#search_bar {
+/* Search bar styling */
+#search_bar, #search_bar_shopping {
     margin: 10px 0;
     text-align: center;
     padding: 10px;
@@ -117,6 +116,7 @@ body.light-mode #mode-toggle-checkbox{
     display: none;
 }
 
+/* All searches container styling */
 .all_searches {
     width: 100%; 
     display: flex;
@@ -124,6 +124,7 @@ body.light-mode #mode-toggle-checkbox{
     align-items: center;
 }
 
+/* Add item button styling */
 .add-item {
     margin: 10px 0;
     padding: 10px;
@@ -131,20 +132,36 @@ body.light-mode #mode-toggle-checkbox{
     background-color: rgb(156, 180, 180);
 }
 
+/* List styling */
 .list {
     background-color: darkgrey;
+    list-style: none;
+    padding: 0;
+    width: 100%;
 }
 
+.list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: lightgrey;
+    border-radius: 5px;
+}
+
+/* Navbar button styling */
 #open-nav-bar {
     background-color: rgba(0, 0, 0, 0.1);
     cursor: pointer;
 }
 
+/* Dropdown styling */
 .dropdown {
-    display: inline-block ;
+    display: inline-block;
     align-items: center;
     gap: 10px;
 }
+
 .dropdown a {
     display: block;
     color: black;
@@ -164,13 +181,21 @@ body.light-mode #mode-toggle-checkbox{
     display: block;
 }
 
+/* Navbar button hover styling */
 #open-nav-bar:hover {
     background-color: grey;
 }
 
+/* Dropdown link hover styling */
 .dropdown a:hover {
     background-color: blueviolet;
 }
 
+/* Item quantity and name styling */
+.item-quantity {
+    font-weight: bold;
+}
 
-
+.item-name {
+    margin-left: 10px;
+}
