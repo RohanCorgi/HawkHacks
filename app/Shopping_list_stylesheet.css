@@ -23,6 +23,14 @@
     position: relative;
 }
 
+#list_headerid{
+    border-radius: 10px;
+    background-color:rgb(190, 187, 187);
+}
+#list_headerid:hover{
+    border-radius: 10px;
+    background-color:rgb(163, 160, 160);
+}
 
 
 .title {
@@ -108,9 +116,11 @@ body.light-mode .list {
 
 }
 
-body.light-mode #list_header{
-
-    background-color:rgb(190, 187, 187);
+body.light-mode #list_headerid{
+    background-color:rgb(189, 207, 212);
+}
+body.light-mode #list_headerid:hover{
+    background-color:rgb(169, 185, 190);
 }
 
 .mode-toggle .slider {
@@ -210,14 +220,6 @@ body.light-mode #list_header{
     border-radius: 10px; 
 }
 
-#list_header{
-    border-radius: 10px;
-    background-color:rgb(190, 187, 187);
-}
-#list_header:hover{
-    border-radius: 10px;
-    background-color:rgb(163, 160, 160);
-}
 
 .button-container{
     display: flex;
