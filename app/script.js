@@ -60,3 +60,4 @@ document.getElementById('mode-toggle-checkbox').addEventListener('change', funct
 function plural(word, count) {
     return count === 1 ? word : word + 's';
 }
+
