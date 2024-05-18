@@ -89,7 +89,9 @@ body.light-mode .title {
 body.light-mode .add-item {
     background-color: lightblue;
 }
-
+body.light-mode .add-item:hover {
+    background-color: rgb(137, 181, 196);
+}
 
 
 .mode-toggle .slider {
@@ -130,7 +132,11 @@ body.light-mode .add-item {
     margin: 10px 0;
     padding: 10px;
     border-radius: 20px;
-    background-color: rgb(156, 180, 180);
+    background-color: rgb(89, 86, 86);
+    cursor: pointer;
+}
+.add-item:hover{
+    background-color: rgb(102, 101, 101);
 }
 
 #open-nav-bar {
@@ -294,4 +300,14 @@ body.light-mode .slider {
 .login {
     border-radius: 10px;
     background-color: rgb(173, 174, 174);
+}
+
+.Chatbot-Output{
+    background-color: rgb(91, 91, 91);
+    width: 400px;
+    height: auto;
+    max-height: 1000px;
+    border: solid 2px;
+    border-radius: 10px;
+    display:none ;
 }

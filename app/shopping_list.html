@@ -34,20 +34,27 @@
         </div>
 
         <div class="all_searches">
-            <input type="text" id="enter_food" class="item-input" placeholder="Enter Food Item">
-            <input type="number" id="enter_quantity" class="item-input" min="1" value="1" placeholder="Quantity">
-            <input type="text" id="search_bar" placeholder="Search Bar">
-            <button class="add-item" onclick="addItem(true)">Add Item</button>
+            <div class="input_wrapper">
 
+                <input type="text" id="enter_food" class="item-input" placeholder="Enter Food Item">
+                <input type="number" id="enter_quantity" class="item-input" min="1" value="1" placeholder="Quantity">
+            </div>
+
+
+
+            <input type="text" id="search_bar" placeholder="Search Bar">
+            <div class="add_header">
+                <button class="add-item" id="additemid" onclick="addItem(true)">Add Item</button>
+                
+                <button  id="add_header" class="More-header">Add Header</button> 
+            </div>
             <dl id="itemlist" class="list">
                 <input type="text" id="list_header" placeholder="type your header/title here!">
             </dl>
-            
-
-
 
         </div>
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>
