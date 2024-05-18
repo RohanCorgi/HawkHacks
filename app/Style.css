@@ -205,12 +205,7 @@ body.light-mode .add-item {
 /* Your existing CSS styles here */
 
 /* Ensure remove button is visible */
-.list .remove-item {
-    background-color: red;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
+
 .list {
     padding: 0;
     margin: 0;
@@ -247,7 +242,7 @@ body.light-mode .add-item {
     color: white;
     border: none;
     cursor: pointer;
-    padding: 5px 10px;
+    padding: 3px 10px;
     border-radius: 5px;
 }
 
@@ -306,15 +301,6 @@ body.light-mode .slider {
 .list li .item-expiry {
     flex-grow: 1; /* Allow items to expand within the flex container */
     text-align: left; /* Align content to the left */
-}
-
-.list li .remove-item {
-    background-color: red;
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 5px;
 }
 
 /* Additional styling for light mode */
