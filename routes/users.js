@@ -54,3 +54,5 @@ router.get('/users/:token', async (req, res) => {
         res.status(500).send('There was an error getting the account')
     }
 })
+
+module.exports = router

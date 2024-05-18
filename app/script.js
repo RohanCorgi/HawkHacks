@@ -65,10 +65,16 @@ document.getElementById('mode-toggle-checkbox').addEventListener('change', funct
 function login() {
     let email = document.getElementById('email').value
     let password = document.getElementById('password').value
+    let token = localStorage.getItem('token')
     console.log('login', email, password)
 
-    fetch({
-
+    fetch(`http://localhost:3000/users/${token}`).then((response) => {
+        if (response.ok) {
+            var items = response.items
+            localStorage.setItem('items', items)
+        } else {
+            alert('There was an error getting your login')
+        }
     })
 }
 
@@ -77,7 +83,12 @@ function signup() {
     let password = document.getElementById('password').value
     console.log('signup', email, password)
 
-    fetch({
-
+    fetch(`http://localhost:3000/users`, {
+        method: "POST",
+        body: {
+            email: email,
+            password: password,
+            items: [] //Get a list with objects
+        }
     })
 }
