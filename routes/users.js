@@ -34,6 +34,7 @@ router.post('/users', async (req, res) => {
             items: req.body.items
         })
         res.status(200).send('Successfully created user')
+        console.log('sending request')
     } catch (error) {
         console.error(error)
         res.status(500).send('There was an error creating the account')

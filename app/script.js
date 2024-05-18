@@ -121,7 +121,7 @@ function login() {
     console.log('login', email, password, token)
 
     let xhttp = new XMLHttpRequest()
-    xhttp.open('GET', `http://localhost:3000/users/${token}`)
+    xhttp.open('GET', `http://localhost:3000/users/${token}/`)
     xhttp.send()
     xhttp.onload = function() {
         if (xhr.status != 200) { // analyze HTTP status of the response
@@ -134,7 +134,7 @@ function login() {
         alert("Request failed");
     };
 
-    fetch(`http://localhost:3000/users/${token}`).then((response) => {
+    fetch(`http://localhost:3000/users/${token}/`).then((response) => {
         console.log('Sending request')
         if (response.ok) {
             var items = response.items
