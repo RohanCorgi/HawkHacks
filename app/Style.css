@@ -84,7 +84,13 @@ body.light-mode .add-item {
     background-color: lightblue;
 }
 
-/* Add other light mode styles as needed */
+body.light-mode #mode-toggle-checkbox{
+    background-color: black      ;
+}
+
+.mode-toggle .slider{
+    display: block;
+}
 
 #enter_food {
     text-align: center;
