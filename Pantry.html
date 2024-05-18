@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pantry App</title>
     <link rel="stylesheet" href="Style.css">
+
     <link rel="icon" type="image/jpg" href="Images/Pantry_169.png">
 </head>
+
 <body>
 
-    
+
     <div class="container">
-        
+
         <div class="dropdown">
             <button class="dropdown_button" id="open-nav-bar">
                 <img src="Images/Ham-Button.png" width="24px" height="24px" alt="Menu Button">
@@ -19,26 +23,32 @@
             <div class="content">
                 <a href="pantry.html">Pantry</a>
             </div>
-        
-        </div> 
-        
-        
+
+        </div>
+
         <div class="title">
             <header>
                 <h1 id="pantry_title">PANTRY</h1>
             </header>
         </div>
-        <input type="text" id="enter_food" placeholder="enter food item">
 
-        <input type="number" id="enter_quantity" min="1" value="1" placeholder="quantity">
+        <div class="all_searches">
+            <input type="text" id="enter_food" placeholder="enter food item">
 
-        <input type="text" id="search_bar" placeholder="search bar">
+            <input type="number" id="enter_quantity" min="1" value="1" placeholder="quantity">
 
-        <button class="add-item" onclick="addItem()">Add Item</button>
+            <input type="text" id="search_bar" placeholder="search bar">
 
-        <ul id="itemlist"></ul>
+            <button class="add-item" onclick="addItem()">Add Item</button>
+
+            <ul id="itemlist"></ul>
+        </div>
+
+        <script src="script.js"></script>
+
     </div>
 
-    <script src="script.js"></script>
+
 </body>
+
 </html>
