@@ -1,3 +1,21 @@
+@font-face {
+    src: url(fonts/ChakraPetch-Light.ttf);
+    font-family: ChakraPetch;
+}
+@font-face{
+    src: url(fonts/Dosis-VariableFont_wght.ttf);
+    font-family: Dosis;
+}
+@font-face{
+    src: url(fonts/PoetsenOne-Regular.ttf);
+    font-family: PoestsenOne;
+}
+@font-face{
+    src: url(fonts/TitilliumWeb-Light.ttf);
+    font-family: TitilliumWeb;
+}
+
+
 body {
     font-family: Arial, sans-serif;
     background-color: #333;
