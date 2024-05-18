@@ -1,3 +1,15 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    color: #fff;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode {
+    background-color: #fff;
+    color: #000;
+}
+
 .container,
 .shopping-list-container .container,
 .shopping-list-container {
@@ -13,6 +25,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+body.light-mode .container {
+    background-color: rgb(218, 218, 218);
 }
 
 .title-container {
@@ -31,6 +47,11 @@
     padding: 10px;
     margin: 0 10px;
     margin-right: 10px;
+}
+
+body.light-mode .title {
+    background-color: rgb(189, 186, 186);
+    color: black;
 }
 
 .mode-toggle {
@@ -65,25 +86,14 @@
     transition: transform 0.3s ease;
 }
 
-input[type="checkbox"]:checked+.slider::before {
+input[type="checkbox"]:checked + .slider::before {
     background-color: rgb(184, 181, 181);
     transform: translateX(20px);
     background-image: url('Images/sun-removebg-preview.png');
- 
 }
 
-body.light-mode {
-    background-color: white;
-    color: black;
-}
-
-body.light-mode .container {
-    background-color: rgb(218, 218, 218);
-}
-
-body.light-mode .title {
-    background-color: rgb(189, 186, 186);
-    color: black;
+body.light-mode .slider {
+    background-color: grey;
 }
 
 body.light-mode .add-item {
@@ -91,12 +101,6 @@ body.light-mode .add-item {
 }
 body.light-mode .add-item:hover {
     background-color: rgb(137, 181, 196);
-}
-
-
-.mode-toggle .slider {
-    display: block;
-    margin: auto;
 }
 
 #enter_food,
@@ -202,35 +206,14 @@ body.light-mode .add-item:hover {
     align-items: center;
     justify-content: space-between;
 }
-.mode-toggle .slider {
-    display: block;
-    margin: auto;
-    border: 2px solid rgb(0, 0, 0); /* Added border style */
-    border-radius: 10px; /* Maintains rounded corners */
+
+body.light-mode .list li {
+    background-color: lightgrey;
+    color: black;
 }
 
-.list {
-    padding: 0;
-    margin: 0;
-    text-align: center;
-    width: auto;
-    border-radius: 10px;
-    width: 100%;
-    list-style-type: none; /* Remove bullet points */
-}
-
-.list li {
-    background-color: darkgrey;
-    border: solid 2px black;
-    border-radius: 20px;
-    padding: 10px;
-    margin: auto;
-    margin-top: 10px;
-    text-align: center;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+body.light-mode .list li .remove-item {
+    background-color: darkred;
 }
 
 .list li .remove-item {
@@ -242,63 +225,7 @@ body.light-mode .add-item:hover {
     border-radius: 5px;
 }
 
-/* Additional styling for light mode */
-body.light-mode .list li {
-    background-color: lightgrey;
-    color: black;
-}
-
-body.light-mode .list li .remove-item {
-    background-color: darkred;
-}
-
-/* Ensure remove button is visible */
-.list .remove-item {
-    background-color: red;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-/* Made some changhes*/
-/* Did this */
-/* Additional styling for light mode */
-body.light-mode .list li {
-    background-color: lightgrey;
-    color: black;
-}
-
-body.light-mode .list li .remove-item {
-    background-color: darkred;
-}
-
-.slider{
-    display: inline-block;
-    background-color: rgb(57, 57, 57); /* dark mode slider */
-}
-body.light-mode .slider {
-    background-color: grey;
-}
-.list li {
-    background-color: darkgrey;
-    border: solid 2px black;
-    border-radius: 20px;
-    padding: 10px;
-    margin: auto;
-    margin-top: 10px;
-    margin-bottom: 5px; /* Adjust margin-bottom to reduce the space */
-    text-align: center;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-.signup {
-    border-radius: 10px;
-    background-color: rgb(173, 174, 174);
-}
-
-.login {
+.signup, .login {
     border-radius: 10px;
     background-color: rgb(173, 174, 174);
 }
@@ -310,5 +237,5 @@ body.light-mode .slider {
     max-height: 1000px;
     border: solid 2px;
     border-radius: 10px;
-    display:none ;
+    display: none;
 }
