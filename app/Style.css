@@ -166,3 +166,7 @@ body.light-mode .add-item {
 .dropdown a:hover {
     background-color: blueviolet;
 }
+
+.mode-toggle{
+    position: relative;
+}
