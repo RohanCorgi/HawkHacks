@@ -9,15 +9,22 @@
     border-radius: 10px;
     box-shadow: 10px 5px 5px rgb(0, 0, 0);
     display: flex;
-    flex-direction: column; 
-    align-items: center; 
+    flex-direction: column; /* Main container stacks elements vertically */
+    align-items: center; /* Centers elements horizontally within the container */
 }
 
 .title-container {
     display: flex;
-    align-items: center; 
-    justify-content: center; 
-    width: 100%;
+    align-items: center; /* Aligns title and dropdown vertically within the container */
+    justify-content: space-between; /* Distributes title and dropdown horizontally */
+    width: 100%; /* Fills the available width within the container */
+}
+
+.dropdown {
+    display: inline-block;
+    align-items: center;
+    gap: 10px;
+    margin-left: 15px; /* Moves the dropdown slightly to the left */
 }
 
 .title {
@@ -26,42 +33,27 @@
     text-align: center;
     border-radius: 5px;
     padding: 10px;
-    margin: 0 10px; 
+    margin: 0 10px;
     margin-right: 50px;
-
-
 }
 
-#enter_food {
-    text-align: center;
-    border: solid 1px;
-    background-color: rgb(226, 227, 254);
-    border-radius: 5px;
-    padding: 10px;
-
-}
-
-#enter_quantity {
-    text-align: center;
-    border: solid 1px;
-    background-color: rgb(226, 227, 254);
-    border-radius: 5px;
-    padding: 10px;
-}
-
+#enter_food,
+#enter_quantity,
 #search_bar {
-    margin: 10px 0;
     text-align: center;
+    border: solid 1px;
+    background-color: rgb(226, 227, 254);
+    border-radius: 5px;
     padding: 10px;
-    width: calc(100% - 40px);
-    display: none;
+    margin: 10px 0; /* Adds some spacing between input fields */
+    width: calc(100% - 40px); /* Ensures inputs take up most of the available space */
 }
 
 .all_searches {
-    width: 100%; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 100%;
+    display: flex; /* Groups input fields together horizontally */
+    flex-direction: column; /* Stacks input fields vertically  */
+    align-items: center; /* Centers input fields horizontally within the container */
 }
 
 .add-item {
@@ -69,46 +61,4 @@
     padding: 10px;
     border-radius: 20px;
     background-color: rgb(156, 180, 180);
-}
-
-.list {
-    background-color: darkgrey;
-}
-
-#open-nav-bar {
-    background-color: rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-}
-
-.dropdown {
-    display: inline-block ;
-    align-items: center;
-    gap: 10px;
-    
-}
-.dropdown a{
-    display: block;
-    color: black;
-    text-decoration: none;
-    padding: 10px 15px;
-}
-
-.dropdown .content {
-    display: none;
-    position: absolute;
-    background-color: darkgrey;
-    min-width: 100px;
-    box-shadow: 2px 2px 5px;
-}
-
-.dropdown:hover .content {
-    display: block;
-}
-
-#open-nav-bar:hover {
-    background-color: grey;
-}
-
-.dropdown a:hover {
-    background-color: blueviolet;
 }
