@@ -198,6 +198,4 @@ body.light-mode .add-item {
 .mode-toggle .slider {
     display: block;
     margin: auto;
-    border: 2px solid rgb(0, 0, 0); \
-    border-radius: 10px; 
 }
