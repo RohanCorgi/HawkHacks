@@ -1,7 +1,5 @@
 .container,
 .shopping-list-container {
-.container,
-.shopping-list-container {
     background-color: grey;
     height: auto;
     width: auto;
@@ -170,3 +168,4 @@ body.light-mode #mode-toggle-checkbox {
 
 
 
+}
