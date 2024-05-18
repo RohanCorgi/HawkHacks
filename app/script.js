@@ -3,7 +3,14 @@ function addItem() {
     const quantity = Number(quantityElement.value.trim());
     const foodElement = document.getElementById('enter_food');
     const food = foodElement.value.trim();
+    const quantityElement = document.getElementById('enter_quantity');
+    const quantity = Number(quantityElement.value.trim());
+    const foodElement = document.getElementById('enter_food');
+    const food = foodElement.value.trim();
 
+    if (food === '') {
+        throw new Error('Please enter a food item');
+    }
     if (food === '') {
         throw new Error('Please enter a food item');
     }
@@ -32,6 +39,14 @@ function addItem() {
         <button class="remove-item" onclick="removeItem(this)">Remove</button>
         <button class="clear-expiry" onclick="clearExpiry(this)">Clear Expiry</button>
     `;
+    // Constructing the list item HTML
+    newItem.innerHTML = `
+        <span class="item-quantity">${quantity}</span>
+        <span class="item-name">${food}</span>
+        <input type="date" id="expiry_date_${newItem.id}" class="expiry-date">
+        <button class="remove-item" onclick="removeItem(this)">Remove</button>
+        <button class="clear-expiry" onclick="clearExpiry(this)">Clear Expiry</button>
+    `;
 
     // Update expiry date span on item addition (optional)
     const expiryDateInput = newItem.querySelector('.expiry-date');
@@ -39,7 +54,26 @@ function addItem() {
         const expirySpan = this.parentElement.querySelector('.item-expiry');
         expirySpan.textContent = this.value;
     });
+    // Update expiry date span on item addition (optional)
+    const expiryDateInput = newItem.querySelector('.expiry-date');
+    expiryDateInput.addEventListener('change', function() {
+        const expirySpan = this.parentElement.querySelector('.item-expiry');
+        expirySpan.textContent = this.value;
+    });
 
+    itemList.appendChild(newItem);
+}
+
+function removeItem(button) {
+    button.parentElement.remove();
+}
+
+function clearExpiry(button) {
+  const expiryInput = button.parentElement.querySelector('.expiry-date');
+  const expirySpan = button.parentElement.querySelector('.item-expiry');
+  expiryInput.value = "";
+  expirySpan.textContent = "";
+}
         itemList.appendChild(newItem);
 }
 
