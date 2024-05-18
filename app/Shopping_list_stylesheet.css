@@ -170,7 +170,7 @@ body.light-mode .add-item {
 
 .list {
     text-align: center;
-    width: auto;
+    width:400px;
     border-radius: 10px;
     list-style-type: disc;
     background-color: darkgrey;
