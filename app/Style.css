@@ -263,3 +263,69 @@ body.light-mode .list li .remove-item {
 body.light-mode .slider {
     background-color: grey;
 }
+/* Your existing CSS styles here */
+
+/* Ensure remove button is visible */
+.list .remove-item {
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.list {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: auto;
+    border-radius: 10px;
+    width: 100%;
+    list-style-type: none; /* Remove bullet points */
+}
+
+.list li {
+    background-color: darkgrey;
+    border: solid 2px black;
+    border-radius: 20px;
+    padding: 10px;
+    margin: auto;
+    margin-top: 10px;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.list li .item-quantity,
+.list li .item-name,
+.list li .item-expiry {
+    flex-grow: 1; /* Allow items to expand within the flex container */
+    text-align: left; /* Align content to the left */
+}
+
+.list li .remove-item {
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Additional styling for light mode */
+body.light-mode .list li {
+    background-color: lightgrey;
+    color: black;
+}
+
+body.light-mode .list li .remove-item {
+    background-color: darkred;
+}
+
+.slider{
+    display: inline-block;
+    background-color: rgb(57, 57, 57); /* dark mode slider */
+}
+body.light-mode .slider {
+    background-color: grey;
+}

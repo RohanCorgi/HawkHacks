@@ -45,3 +45,12 @@ function clearExpiry(button) {
   expiryInput.value = "";
   expirySpan.textContent = "";
 }
+
+document.getElementById('mode-toggle-checkbox').addEventListener('change', function() {
+    document.body.classList.toggle('light-mode', this.checked);
+});
+
+// Pluralize function
+function plural(word, count) {
+    return count === 1 ? word : word + 's';
+}
