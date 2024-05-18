@@ -6,8 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pantry App</title>
-    <link rel="stylesheet" href="Style.css">
-
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/jpg" href="Images/Pantry_169.png">
 </head>
 
@@ -19,7 +18,8 @@
                     <img src="Images/Ham-Button.png" width="24px" height="24px" alt="Menu Button">
                 </button>
                 <div class="content">
-                    <a href="pantry.html">Pantry</a>
+                    <a href="#">Chatbot</a>
+                    <a href="index.html">Pantry</a>
                 </div>
             </div>
             <div class="title">
@@ -39,6 +39,17 @@
             <input type="text" id="search_bar" placeholder="search bar">
             <button class="add-item" onclick="addItem()">Add Item</button>
             <ul id="itemlist"></ul>
+        </div>
+    </div>
+
+    <div id="chatbot-container" class="chatbot-container">
+        <div class="chatbot-header">
+            <h2>Chatbot</h2>
+            <button id="close-chatbot">X</button>
+        </div>
+        <div class="chatbot-content">
+            <!-- Chatbot content goes here -->
+            <p>Hello! How can I assist you today?</p>
         </div>
     </div>
 
