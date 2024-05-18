@@ -153,7 +153,7 @@ function signup() {
     let password = document.getElementById('password').value;
     console.log('signup', email, password);
 
-    fetch(`http://localhost:3000/users/`, {
+    fetch(`http://localhost:3000/api/users/`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -163,8 +163,10 @@ function signup() {
             password: password,
             items: [] //Get a list with objects
         })
-    }).then((response) => {
-        if (response.ok) {
+    }).then((response) => (response.ok))
+    .then((is_ok) => {
+        console.log('sdfdsf')
+        if (is_ok) {
             alert('Signup successful!');
         } else {
             alert('There was an error during signup');

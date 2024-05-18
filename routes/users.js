@@ -25,14 +25,16 @@ function token() {
 
 const router = express.Router()
 
-router.post('/users', async (req, res) => {
+router.post('/api/users/', async (req, res) => {
     try {
-        UsersApiService.createOneUsers({
-            email: req.body.email,
-            password: req.body.password,
-            token: token(),
-            items: req.body.items
+        console.log('sign up')
+        const user = new User({
+            'email': req.body.email,
+            'password': req.body.password,
+            'token': req.body.token,
+            'items': req.body.items
         })
+        user.save()
         res.status(200).send('Successfully created user')
         console.log('sending request')
     } catch (error) {
@@ -42,7 +44,7 @@ router.post('/users', async (req, res) => {
     
 })
 
-router.get('/users/:token', async (req, res) => {
+router.get('/api/users/:token', async (req, res) => {
     try {
         const acc = await UsersApiService.findUsers({
             'token': req.params.token

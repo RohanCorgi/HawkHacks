@@ -15,7 +15,7 @@ async function generateRecommendations(prompt) {
 }
 
 const router = express.Router()
-router.post('/chat', async function (req, res) {
+router.post('/api/chat', async function (req, res) {
     try {
       const recommendations = await generateRecommendations(req.body.prompt)
       res.status(200).send(recommendations)  
