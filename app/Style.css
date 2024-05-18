@@ -1,6 +1,5 @@
 .container,
-.shopping-list-container 
-.container,
+.shopping-list-container .container,
 .shopping-list-container {
     background-color: grey;
     height: auto;
@@ -86,9 +85,7 @@ body.light-mode .add-item {
     background-color: lightblue;
 }
 
-body.light-mode #mode-toggle-checkbox {
-    background-color: black;
-}
+
 
 .mode-toggle .slider {
     display: block;
@@ -171,26 +168,33 @@ body.light-mode #mode-toggle-checkbox {
 .list {
     padding: 0;
     margin: 0;
-text-align: center;
-width: auto;
-border-radius: 10px;
-width: 100%;
-list-style-type: disc;
+    text-align: center;
+    width: auto;
+    border-radius: 10px;
+    width: 100%;
+    list-style-type: disc;
 }
 
-.list li{
-background-color: darkgrey;
-border: solid 2px black;
-border-radius: 20px;
-padding: 10px;
-margin: auto;
-margin-top: 10px;
-text-align: center;
-width:200px;
-height: 2px;
-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-display: flex;
-align-items: center;
-justify-content: space-between;
+.list li {
+    background-color: darkgrey;
+    border: solid 2px black;
+    border-radius: 20px;
+    padding: 10px;
+    margin: auto;
+    margin-top: 10px;
+    text-align: center;
+    width: 200px;
+    height: 2px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
+.slider{
+    display: inline-block;
+    background-color: rgb(57, 57, 57); /* dark mode slider */
+}
+body.light-mode .slider {
+    background-color: grey;
+}
