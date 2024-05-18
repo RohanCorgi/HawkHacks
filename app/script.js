@@ -106,3 +106,11 @@ function addItem() {
 
     new_item.innerHTML = `<span class="item-quantity">${quantity}</span> <span class="item-name">${plural(food, quantity)}</span>`
 }
+
+document.getElementById('mode-toggle-checkbox').addEventListener('change', function() {
+    if (this.checked) {
+        document.body.classList.add('light-mode');
+    } else {
+        document.body.classList.remove('light-mode');
+    }
+});
