@@ -1,3 +1,5 @@
+var foods_info = []
+
 function addItem(is_shopping_list) {
     const quantityElement = document.getElementById('enter_quantity');
     const quantity = Number(quantityElement.value.trim());
@@ -12,14 +14,25 @@ function addItem(is_shopping_list) {
 
     const items = document.querySelectorAll('#itemlist li .item-name')
     let ret = false;
+    let foods = []
     items.forEach((v, idx) => {
         if (v.innerText == food) {
             ret = true;
-            let quant = document.querySelectorAll('#itemlist li .item-quantity')[idx]
+            var quant = document.querySelectorAll('#itemlist li .item-quantity')[idx]
             quant.innerText = Number(quant.innerText) + quantity
+        }
+        if (!is_shopping_list) {
+            foods.push({
+                name: v.innerText,
+                quantity: Number(document.querySelectorAll('#itemlist li .item-quantity')[idx].value),
+                exipry: document.querySelectorAll('#itemlist li .expiry-date')[idx].value
+            })
+            let a = document.querySelector('#itemlist li .expiry-date')
+            console.log(a.value)
         }
     })
     if (ret) return;
+    foods_info = foods
 
     const newItem = document.createElement('li');
     newItem.id = Math.random().toString(36).substring(2, 15);  // Generate unique ID
@@ -39,9 +52,10 @@ function addItem(is_shopping_list) {
         // Update expiry date span on item addition (optional)
         const expiryDateInput = newItem.querySelector('.expiry-date');
         expiryDateInput.addEventListener('change', function() {
-            const expirySpan = this.parentElement.querySelector('.item-expiry');
-            expirySpan.textContent = this.value;
+            const date = this.value;
+            // TODO: Make it update the expiry date in real time
         });
+        // TODO: Make it save to local storage
     }
 
     itemList.appendChild(newItem);
