@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping List</title>
-    <link rel="stylesheet" href="Shopping_list_stylesheet.css">
+    <title>Pantry App</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/jpg" href="Images/Pantry_169.png">
 </head>
 
@@ -18,36 +18,35 @@
                 </button>
                 <div class="content">
                     <a href="login-signup.html">Home</a>
+                    <a href="shopping_list.html">Shopping List</a>         
                     <a href="index.html">Pantry</a>
-                    <a href="Chatbot.html">Chabot</a>
                 </div>
             </div>
             <div class="title">
                 <header>
-                    <h1 id="Shopping list_title">Shopping list</h1>
+                    <h1 id="pantry_title">Chatbot</h1>
                 </header>
             </div>
             <div class="mode-toggle">
                 <input type="checkbox" id="mode-toggle-checkbox">
                 <label for="mode-toggle-checkbox" class="slider"></label>
+
+
+              
+
             </div>
         </div>
 
         <div class="all_searches">
-            <input type="text" id="enter_food" class="item-input" placeholder="Enter Food Item">
-            <input type="number" id="enter_quantity" class="item-input" min="1" value="1" placeholder="Quantity">
-            <input type="text" id="search_bar" placeholder="Search Bar">
-            <button class="add-item" onclick="addItem()">Add Item</button>
+            <input type="text" id="enter_food" class="item-input" placeholder="Ask Me About Food!">
+            <button class="add-item" onclick="addItem()">Enter</button>
 
-            <dl id="itemlist" class="list">
-                <input type="text" id="list_header" placeholder="type your header/title here!">
-            </dl>
-            
+           <div class="Chatbot-Output">
 
-
+           </div>
 
         </div>
     </div>
-    <script src="Shoppinglist_.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
