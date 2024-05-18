@@ -15,9 +15,11 @@ function addItem() {
     items.forEach((v, idx) => {
         if (v.innerText == food) {
             ret = true;
-            let quant = Number(document.querySelectorAll('#itemlist li .item-name')[idx].innerText)
+            let quant = document.querySelectorAll('#itemlist li .item-quantity')[idx]
+            quant.innerText = Number(quant.innerText) + quantity
         }
     })
+    if (ret) return;
 
     const newItem = document.createElement('li');
     newItem.id = Math.random().toString(36).substring(2, 15);  // Generate unique ID
@@ -52,11 +54,10 @@ function clearExpiry(button) {
   expirySpan.textContent = "";
 }
 
+function removeItem(button) {
+    button.parentElement.remove();
+}
+
 document.getElementById('mode-toggle-checkbox').addEventListener('change', function() {
     document.body.classList.toggle('light-mode', this.checked);
 });
-
-// Pluralize function
-function plural(word, count) {
-    return count === 1 ? word : word + 's';
-}
