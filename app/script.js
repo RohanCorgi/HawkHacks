@@ -118,12 +118,13 @@ function login() {
     let email = document.getElementById('email').value
     let password = document.getElementById('password').value
     let token = localStorage.getItem('token')
-    console.log('login', email, password)
+    console.log('login', email, password, token)
 
     fetch(`http://localhost:3000/users/${token}`).then((response) => {
         if (response.ok) {
             var items = response.items
             localStorage.setItem('items', items)
+            alert(response.json)
         } else {
             alert('There was an error getting your login')
         }
@@ -131,18 +132,26 @@ function login() {
 }
 
 function signup() {
-    let email = document.getElementById('email').value
-    let password = document.getElementById('password').value
-    console.log('signup', email, password)
+    let email = document.getElementById('email').value;
+    let password = document.getElementById('password').value;
+    console.log('signup', email, password);
 
     fetch(`http://localhost:3000/users`, {
         method: "POST",
-        body: {
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
             email: email,
             password: password,
             items: [] //Get a list with objects
+        })
+    }).then((response) => {
+        if (response.ok) {
+            alert('Signup successful!');
+        } else {
+            alert('There was an error during signup');
         }
-    })
-
+    });
 }
 
