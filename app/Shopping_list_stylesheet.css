@@ -15,6 +15,17 @@
     font-family: TitilliumWeb;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    color: #fff;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode {
+    background-color: #fff;
+    color: #000;
+}
 
 .container,
 .shopping-list-container .container,
@@ -33,6 +44,10 @@
     align-items: center;
 }
 
+body.light-mode .container {
+    background-color: rgb(218, 218, 218);
+}
+
 .title-container {
     font-family: TitilliumWeb;
     display: flex;
@@ -42,11 +57,12 @@
     position: relative;
 }
 
-#list_headerid{
+.list_header{
     border-radius: 10px;
     background-color:rgb(190, 187, 187);
 }
-#list_headerid:hover{
+
+.list_header:hover{
     border-radius: 10px;
     background-color:rgb(163, 160, 160);
 }

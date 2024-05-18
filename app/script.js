@@ -77,7 +77,14 @@ function removeItem(button) {
 }
 
 function addHeader() {
-    
+    let header = document.createElement('input')
+    header.type = 'text'
+    header.placeholder = 'type your header/title here!'
+    header.classList.add('list_header')
+    let list = document.getElementById('itemlist')
+    let br = document.createElement('br')
+    list.appendChild(header)
+    list.appendChild(br)
 }
 
 document.getElementById('mode-toggle-checkbox').addEventListener('change', function() {
