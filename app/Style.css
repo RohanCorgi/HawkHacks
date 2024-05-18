@@ -27,6 +27,7 @@
     border-radius: 5px;
     padding: 10px;
     margin: 0 10px; 
+    margin-right: 50px;
 
 
 }
@@ -42,8 +43,10 @@
 
 #enter_quantity {
     text-align: center;
+    border: solid 1px;
+    background-color: rgb(226, 227, 254);
+    border-radius: 5px;
     padding: 10px;
-
 }
 
 #search_bar {
@@ -64,7 +67,8 @@
 .add-item {
     margin: 10px 0;
     padding: 10px;
-    width: calc(100% - 40px); 
+    border-radius: 20px;
+    background-color: rgb(156, 180, 180);
 }
 
 .list {
