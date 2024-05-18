@@ -95,12 +95,13 @@ function login() {
     let email = document.getElementById('email').value
     let password = document.getElementById('password').value
     let token = localStorage.getItem('token')
-    console.log('login', email, password)
+    console.log('login', email, password, token)
 
     fetch(`http://localhost:3000/users/${token}`).then((response) => {
         if (response.ok) {
             var items = response.items
             localStorage.setItem('items', items)
+            alert(response.json)
         } else {
             alert('There was an error getting your login')
         }
@@ -119,6 +120,8 @@ function signup() {
             password: password,
             items: [] //Get a list with objects
         }
+    }).then((response) => {
+        
     })
 
 }
