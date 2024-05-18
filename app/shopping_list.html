@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pantry App</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/jpg" href="Images/Pantry_169.png">
+    <link rel="icon" type="image/jpg" href="Images/Shopping_list_169.png">
 </head>
-
 <body>
     <div class="container">
         <div class="title-container">
@@ -31,10 +29,9 @@
                 <label for="mode-toggle-checkbox" class="slider"></label>
             </div>
         </div>
-
         <div class="all_searches">
-            <input type="text" id="enter_food_shopping" placeholder="Enter Food Item">
-            <input type="number" id="enter_quantity_shopping" min="1" value="1" placeholder="Quantity">
+            <input type="text" id="enter_food_shopping" class="item-input" placeholder="Enter Food Item">
+            <input type="number" id="enter_quantity_shopping" min="1" class="item-input" value="1" placeholder="Quantity">
             <input type="text" id="search_bar_shopping" placeholder="Search Bar">
             <button class="add-item" onclick="addShoppingItem()">Add Item</button>
             <ul id="shoppingitemlist" class="list"></ul>
@@ -42,5 +39,4 @@
     </div>
     <script src="script.js"></script>
 </body>
-
 </html>
