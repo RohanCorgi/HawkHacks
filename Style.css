@@ -49,3 +49,40 @@
 .list{
     background-color: darkgrey;
 }
+
+#open-nav-bar{
+    background-color: rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+.dropdown{
+    display: inline-block;
+    margin-right: 450px;
+}
+
+.dropdown a{
+    display: block;
+    color: black;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+.dropdown .content{
+    display: none;
+    position: absolute;
+    background-color: darkgrey;
+    min-width: 100px;
+    box-shadow: 2px 2px 5px;
+}
+
+.dropdown:hover .content{
+    display: block;
+}
+
+#open-nav-bar:hover{
+    background-color: grey;
+}
+
+.dropdown a:hover   {
+    background-color: blueviolet;
+}
+
