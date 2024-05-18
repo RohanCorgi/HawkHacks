@@ -16,8 +16,8 @@ function addItem() {
         // Constructing the list item HTML
         newItem.innerHTML = `
             <span class="item-quantity">${quantity}</span>
-            <span class="item-name">${plural(food, quantity)}</span>
-            <input type="date" id="expiry_date_${newItem.id}" class="expiry-date">  <span class="item-expiry"></span>
+            <span class="item-name">${food}</span>
+            <input type="date" id="expiry_date_${newItem.id}" class="expiry-date">
             <button class="remove-item" onclick="removeItem(this)">Remove</button>
             <button class="clear-expiry" onclick="clearExpiry(this)">Clear Expiry</button>
         `;
