@@ -20,9 +20,6 @@ async function dbConnect() {
     }).catch((error) => {
         console.error(error)
     })
-    connection = mongoose.connection
-    return connection
 }
 
-var mongoose_connection = dbConnect()
-console.log(mongoose_connection)
+dbConnect()
