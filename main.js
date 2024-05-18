@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const app = express()
 const ai_router = require('./routes/ai_router')
 const user_router = require('./routes/users')
+const neurelo = require('neurelo-sdk')
 const port = 3000;
 
 app.use(express.json())
