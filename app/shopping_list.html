@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pantry App</title>
+    <title>Shopping list</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/jpg" href="Images/Shopping_list_169.png">
+    <link rel="icon" type="image/jpg" href="Images/Shopping list_169.png">
 </head>
+
 <body>
     <div class="container">
         <div class="title-container">
@@ -15,13 +17,14 @@
                     <img src="Images/Ham-Button.png" width="24px" height="24px" alt="Menu Button">
                 </button>
                 <div class="content">
-                    <a href="shopping_list.html">Shopping List</a>
                     <a href="index.html">Pantry</a>
+                    <a href="shopping_list.html">Shopping List</a>
+
                 </div>
             </div>
             <div class="title">
                 <header>
-                    <h1 id="pantry_title">Shopping List</h1>
+                    <h1 id="Shopping list_title">Shopping list</h1>
                 </header>
             </div>
             <div class="mode-toggle">
@@ -29,14 +32,18 @@
                 <label for="mode-toggle-checkbox" class="slider"></label>
             </div>
         </div>
+
         <div class="all_searches">
-            <input type="text" id="enter_food_shopping" class="item-input" placeholder="Enter Food Item">
-            <input type="number" id="enter_quantity_shopping" min="1" class="item-input" value="1" placeholder="Quantity">
-            <input type="text" id="search_bar_shopping" placeholder="Search Bar">
-            <button class="add-item" onclick="addShoppingItem()">Add Item</button>
-            <ul id="shoppingitemlist" class="list"></ul>
+            <input type="text" id="enter_food" class="item-input" placeholder="Enter Food Item">
+            <input type="number" id="enter_quantity" class="item-input" min="1" value="1" placeholder="Quantity">
+            <input type="text" id="search_bar" placeholder="Search Bar">
+            <button class="add-item" onclick="addItem()">Add Item</button>
+
+            <ul id="itemlist" class="list"></ul>
+
         </div>
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>
