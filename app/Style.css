@@ -50,6 +50,7 @@ body.light-mode .container {
 }
 
 .title-container {
+    font-family: TitilliumWeb;
     display: flex;
     align-items: center;
     justify-content: center;
