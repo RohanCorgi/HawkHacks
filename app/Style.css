@@ -203,10 +203,6 @@ body.light-mode .add-item {
     border-radius: 10px; /* Maintains rounded corners */
 }
 
-/* Your existing CSS styles here */
-
-/* Ensure remove button is visible */
-
 .list {
     padding: 0;
     margin: 0;
