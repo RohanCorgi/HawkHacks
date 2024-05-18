@@ -168,5 +168,29 @@ body.light-mode #mode-toggle-checkbox {
     background-color: blueviolet;
 }
 
+.list {
+    padding: 0;
+    margin: 0;
+text-align: center;
+width: auto;
+border-radius: 10px;
+width: 100%;
+list-style-type: disc;
+}
 
+.list li{
+background-color: darkgrey;
+border: solid 2px black;
+border-radius: 20px;
+padding: 10px;
+margin: auto;
+margin-top: 10px;
+text-align: center;
+width:200px;
+height: 2px;
+box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
 
