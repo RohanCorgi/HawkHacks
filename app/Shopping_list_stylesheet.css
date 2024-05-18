@@ -275,7 +275,7 @@ body.light-mode .list_header:hover {
 .finished-header{
     color: rgb(255, 255, 255);
     font-family:PoestsenOne;
-    font-style: bold;
+    font-weight: bold;
 }
 
 body.light-mode .finished-header{
