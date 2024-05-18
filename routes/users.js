@@ -35,7 +35,7 @@ router.post('/api/users/', async (req, res) => {
             'items': req.body.items
         })
         user.save()
-        res.status(200).send('Successfully created user')
+        res.status(200).send(user.token)
         console.log('sending request')
     } catch (error) {
         console.error(error)

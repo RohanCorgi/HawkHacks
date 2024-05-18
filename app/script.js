@@ -120,20 +120,6 @@ function login() {
     let token = localStorage.getItem('token')
     console.log('login', email, password, token)
 
-    let xhttp = new XMLHttpRequest()
-    xhttp.open('GET', `http://localhost:3000/users/${token}/`)
-    xhttp.send()
-    xhttp.onload = function() {
-        if (xhr.status != 200) { // analyze HTTP status of the response
-          alert(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
-        } else { // show the result
-          alert(`Done, got ${xhr.response.length} bytes`); // response is the server response
-        }
-    };
-    xhttp.onerror = function() {
-        alert("Request failed");
-    };
-
     fetch(`http://localhost:3000/users/${token}/`).then((response) => {
         console.log('Sending request')
         if (response.ok) {
@@ -151,7 +137,6 @@ function login() {
 function signup() {
     let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
-    console.log('signup', email, password);
 
     fetch(`http://localhost:3000/api/users/`, {
         method: "POST",
@@ -165,7 +150,6 @@ function signup() {
         })
     }).then((response) => (response.ok))
     .then((is_ok) => {
-        console.log('sdfdsf')
         if (is_ok) {
             alert('Signup successful!');
         } else {
@@ -174,3 +158,15 @@ function signup() {
     });
 }
 
+function chat() {
+    var chat_prompt = document.getElementById('enter_prompt').value
+    console.log(chat_prompt)
+    fetch(`http://localhost:3000/api/chat/`, {
+        method: "POST",
+        body: {
+            prompt: chat_prompt
+        }
+    }).then((response) => {
+        alert(response.text())
+    })
+}
