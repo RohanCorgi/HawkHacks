@@ -89,7 +89,9 @@ body.light-mode .title {
 body.light-mode .add-item {
     background-color: lightblue;
 }
-
+body.light-mode .add-item:hover {
+    background-color: rgb(137, 181, 196);
+}
 
 
 .mode-toggle .slider {
@@ -130,7 +132,11 @@ body.light-mode .add-item {
     margin: 10px 0;
     padding: 10px;
     border-radius: 20px;
-    background-color: rgb(156, 180, 180);
+    background-color: rgb(89, 86, 86);
+    cursor: pointer;
+}
+.add-item:hover{
+    background-color: rgb(102, 101, 101);
 }
 
 #open-nav-bar {

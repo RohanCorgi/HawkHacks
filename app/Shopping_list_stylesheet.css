@@ -88,8 +88,20 @@ body.light-mode .title {
     color: black;
 }
 
-body.light-mode .add-item {
+body.light-mode #additemid {
     background-color: lightblue;
+}
+
+body.light-mode #additemid:hover{
+    background-color: rgb(137, 181, 196);
+}
+
+body.light-mode #add_header {
+    background-color: lightblue;
+}
+
+body.light-mode #add_header:hover {
+    background-color: rgb(137, 181, 196);
 }
 
 .mode-toggle .slider {
