@@ -76,6 +76,10 @@ function removeItem(button) {
     button.parentElement.remove();
 }
 
+function addHeader() {
+    
+}
+
 document.getElementById('mode-toggle-checkbox').addEventListener('change', function() {
     document.body.classList.toggle('light-mode', this.checked);
 });
