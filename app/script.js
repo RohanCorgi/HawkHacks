@@ -153,7 +153,7 @@ function signup() {
     let password = document.getElementById('password').value;
     console.log('signup', email, password);
 
-    fetch(`http://localhost:3000/users`, {
+    fetch(`http://localhost:3000/users/`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
