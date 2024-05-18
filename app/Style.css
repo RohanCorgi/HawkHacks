@@ -1,4 +1,4 @@
-.container {
+.container, .shopping-list-container {
     background-color: grey;
     height: auto;
     width: auto;
@@ -92,16 +92,11 @@ body.light-mode #mode-toggle-checkbox{
     margin: auto;
 }
 
-#enter_food {
-    text-align: center;
-    border: solid 1px;
-    background-color: rgb(226, 227, 254);
-    border-radius: 5px;
-    padding: 10px;
+#enter_food, #enter_food_shopping {
     margin-top: 10px;
 }
 
-#enter_quantity {
+.item-input {
     text-align: center;
     border: solid 1px;
     background-color: rgb(226, 227, 254);
