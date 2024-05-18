@@ -61,3 +61,23 @@ function removeItem(button) {
 document.getElementById('mode-toggle-checkbox').addEventListener('change', function() {
     document.body.classList.toggle('light-mode', this.checked);
 });
+
+function login() {
+    let email = document.getElementById('email').value
+    let password = document.getElementById('password').value
+    console.log('login', email, password)
+
+    fetch({
+
+    })
+}
+
+function signup() {
+    let email = document.getElementById('email').value
+    let password = document.getElementById('password').value
+    console.log('signup', email, password)
+
+    fetch({
+
+    })
+}
