@@ -45,7 +45,7 @@
 .slider {
     width: 40px;
     height: 20px;
-    background-color: grey;
+    background-color: lightgrey;
     border-radius: 10px;
     position: relative;
     cursor: pointer;
@@ -55,16 +55,21 @@
     content: "";
     width: 18px;
     height: 18px;
-    background-color: white;
+    background-color: black;
     border-radius: 50%;
     position: absolute;
     top: 1px;
     left: 1px;
+    background-image: url('Images/moon-removebg-preview.png');
+    background-size: cover;
     transition: transform 0.3s ease;
 }
 
 input[type="checkbox"]:checked+.slider::before {
+    background-color: rgb(184, 181, 181);
     transform: translateX(20px);
+    background-image: url('Images/sun-removebg-preview.png');
+ 
 }
 
 body.light-mode {
