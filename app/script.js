@@ -9,6 +9,18 @@ function addItem() {
     }
 
     const itemList = document.getElementById('itemlist');
+
+    const items = document.querySelectorAll('#itemlist li .item-name')
+    let ret = false;
+    items.forEach((v, idx) => {
+        if (v.innerText == food) {
+            ret = true;
+            let quant = document.querySelectorAll('#itemlist li .item-quantity')[idx]
+            quant.innerText = Number(quant.innerText) + quantity
+        }
+    })
+    if (ret) return;
+
     const newItem = document.createElement('li');
     newItem.id = Math.random().toString(36).substring(2, 15);  // Generate unique ID
 
