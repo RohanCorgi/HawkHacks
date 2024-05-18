@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping List</title>
+    <title>Pantry App</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/jpg" href="Images/Pantry_169.png">
 </head>
 
 <body>
-    <div class="shopping-list-container">
+    <div class="container">
         <div class="title-container">
             <div class="dropdown">
                 <button class="dropdown_button" id="open-nav-bar">
@@ -23,7 +23,7 @@
             </div>
             <div class="title">
                 <header>
-                    <h1 id="shopping_list_title">SHOPPING LIST</h1>
+                    <h1 id="pantry_title">Shopping List</h1>
                 </header>
             </div>
             <div class="mode-toggle">
@@ -33,11 +33,11 @@
         </div>
 
         <div class="all_searches">
-            <input type="text" id="enter_food_shopping" placeholder="Enter Food Item">
-            <input type="number" id="enter_quantity_shopping" min="1" value="1" placeholder="Quantity">
-            <input type="text" id="search_bar_shopping" placeholder="Search Bar">
-            <button class="add-item" onclick="addShoppingItem()">Add Item</button>
-            <ul id="shoppingitemlist" class="list"></ul>
+            <input type="text" id="enter_food" placeholder="Enter Food Item">
+            <input type="number" id="enter_quantity" min="1" value="1" placeholder="Quantity">
+            <input type="text" id="search_bar" placeholder="Search Bar">
+            <button class="add-item" onclick="addItem()">Add Item</button>
+            <ul id="itemlist" class="list"></ul>
         </div>
     </div>
     <script src="script.js"></script>
