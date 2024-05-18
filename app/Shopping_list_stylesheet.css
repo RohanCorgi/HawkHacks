@@ -10,7 +10,7 @@
 
 @font-face {
     src: url(fonts/PoetsenOne-Regular.ttf);
-    font-family: PoestsenOne;
+    font-family: v;
 }
 
 @font-face {
@@ -272,3 +272,19 @@ body.light-mode .list_header:hover {
     display: none;
 }
 
+.finished-header{
+    color: rgb(255, 255, 255);
+    font-family:PoestsenOne;
+    font-style: bold;
+}
+
+body.light-mode .finished-header{
+    color: #333;
+}
+
+.item-name{
+    color: white;
+}
+body.light-mode .item-name, .item-quantity{
+    color: #fffdfd;
+}
