@@ -17,12 +17,12 @@ app.listen(port, () => {
     console.log(`App listening on port ${port}!`);
 })
 
-async function dbConnect() {
-    mongoose.connect(process.env.MONGODB_KEY).then(() => {
-        console.log("Database successfully connected")
-    }).catch((error) => {
-        console.error(error)
-    })
-}
+// async function dbConnect() {
+//     mongoose.connect(process.env.MONGODB_KEY).then(() => {
+//         console.log("Database successfully connected")
+//     }).catch((error) => {
+//         console.error(error)
+//     })
+// }
 
-dbConnect()
+// dbConnect()
