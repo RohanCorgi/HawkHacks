@@ -259,7 +259,7 @@ body.light-mode .list li .remove-item {
     border: none;
     cursor: pointer;
 }
-
+/* Did this */
 /* Additional styling for light mode */
 body.light-mode .list li {
     background-color: lightgrey;
