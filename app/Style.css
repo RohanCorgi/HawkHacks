@@ -24,7 +24,7 @@
 }
 
 .title {
-    background-color: black;
+    background-color: rgb(41, 40, 40);
     color: white;
     text-align: center;
     border-radius: 5px;
@@ -78,11 +78,11 @@ body.light-mode {
 }
 
 body.light-mode .container {
-    background-color: white;
+    background-color: rgb(218, 218, 218);
 }
 
 body.light-mode .title {
-    background-color: lightgrey;
+    background-color: rgb(189, 186, 186);
     color: black;
 }
 
