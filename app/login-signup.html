@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style.css">
+    <title>Pantry App Login/Signup</title>
+</head>
+<body>
+    <div class="container">
+        <div class="title-container">
+            <div class="dropdown">
+                <button class="dropdown_button" id="open-nav-bar">
+                    <img src="Images/Ham-Button.png" width="24px" height="24px" alt="Menu Button">
+                </button>
+                <div class="content">
+                    <a href="index.html">Pantry</a>
+                    <a href="shopping_list.html">Shopping List</a>
+                    <a href="login-signup.html">Login/Sign Up</a>
+                </div>
+            </div>
+            <div class="title">
+                <header>
+                    <h1 id="pantry_title">Pantry Login/Sign Up</h1>
+                </header>
+            </div>
+            <div class="mode-toggle">
+                <input type="checkbox" id="mode-toggle-checkbox">
+                <label for="mode-toggle-checkbox" class="slider"></label>
+            </div>
+        </div>
+
+        <div class="all_searches">
+            <input type="text" id="email" class="item-input" placeholder="Enter your email">
+            <input type="text" id="password" class="item-input" placeholder="Enter your password">
+            <input type="text" id="search_bar" placeholder="Search Bar">
+            <div id="buttons">
+                <button class="login" onclick="login()">Login</button>
+                <button class="signup" onclick="signup()">Sign Up</button>
+            </div>
+            <ul id="itemlist" class="list"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

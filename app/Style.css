@@ -98,7 +98,8 @@ body.light-mode .add-item {
 }
 
 #enter_food,
-#enter_food_shopping {
+#enter_food_shopping,
+#email {
     margin-top: 10px;
 }
 
@@ -287,4 +288,12 @@ body.light-mode .slider {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+}
+
+#buttons {
+    display: flex;
+}
+
+.login {
+    
 }
