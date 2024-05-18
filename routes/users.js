@@ -1,6 +1,7 @@
+const express = require("express");
 const mongodb = require("mongoose");
 
-userAccount = new mongodb.Schema({
+const userAccount = new mongodb.Schema({
     email: String,
     password: String,
     items: [{
@@ -9,3 +10,4 @@ userAccount = new mongodb.Schema({
         quantity: Number
     }]
 })
+
