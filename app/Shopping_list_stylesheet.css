@@ -23,6 +23,8 @@
     position: relative;
 }
 
+
+
 .title {
     background-color: rgb(41, 40, 40);
     color: white;
@@ -126,8 +128,8 @@ body.light-mode .add-item {
 .add-item {
     margin: 10px 0;
     padding: 10px;
-    border-radius: 20px;
-    background-color: rgb(156, 180, 180);
+    border-radius: 10px;
+    background-color: rgb(89, 86, 86);
 }
 
 #open-nav-bar {
@@ -173,7 +175,7 @@ body.light-mode .add-item {
     width:400px;
     border-radius: 10px;
     list-style-type: disc;
-    background-color: darkgrey;
+    background-color: rgb(99, 98, 98);
     height: 350px;
     border: solid 2px;
     overflow: scroll;
@@ -187,4 +189,44 @@ body.light-mode .add-item {
     border-radius: 10px; 
 }
 
+#list_header{
+    border-radius: 10px;
+    background-color:rgb(202, 198, 198);
+}
 
+.button-container{
+    display: flex;
+    justify-content: flex-end;
+    clear: both;
+
+}
+
+.input_wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+.More-header{
+    margin-left: 10px;
+    Height: 40px;
+    width: 60px;
+    background-color: rgb(89, 86, 86);
+    flex-shrink: 0px;
+    align-items: center;
+    border-radius: 10px;
+    text-align: center;
+}
+.add_header{
+    align-items: center;
+    display: flex;
+}
+
+#add_header:hover{
+    background-color: rgb(102, 101, 101);
+}
+
+#additemid:hover{
+    background-color: rgb(102, 101, 101);
+}
