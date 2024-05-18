@@ -76,6 +76,27 @@ function removeItem(button) {
     button.parentElement.remove();
 }
 
+/**
+ * @param {HTMLInputElement} header
+ */
+function headerKey(header) {
+    /**
+     * @param {KeyboardEvent} e 
+     * @returns 
+     */
+    function eventHandler(e) {
+        var keyCode = e.code || e.key;
+        if (keyCode !== 'Enter') {
+            return;
+        }
+        let new_header = document.createElement('span')
+        new_header.classList.add('finished-header')
+        new_header.innerText = header.value
+        header.replaceWith(new_header)
+    }
+    return eventHandler
+}
+
 function addHeader() {
     let header = document.createElement('input')
     header.type = 'text'
@@ -85,6 +106,8 @@ function addHeader() {
     let br = document.createElement('br')
     list.appendChild(header)
     list.appendChild(br)
+
+    header.addEventListener('keypress', headerKey(header))
 }
 
 document.getElementById('mode-toggle-checkbox').addEventListener('change', function() {
