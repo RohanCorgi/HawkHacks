@@ -98,7 +98,8 @@ body.light-mode .add-item {
 }
 
 #enter_food,
-#enter_food_shopping {
+#enter_food_shopping,
+#email {
     margin-top: 10px;
 }
 
@@ -202,10 +203,6 @@ body.light-mode .add-item {
     border-radius: 10px; /* Maintains rounded corners */
 }
 
-/* Your existing CSS styles here */
-
-/* Ensure remove button is visible */
-
 .list {
     padding: 0;
     margin: 0;
@@ -287,4 +284,14 @@ body.light-mode .slider {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+}
+
+.signup {
+    border-radius: 10px;
+    background-color: rgb(173, 174, 174);
+}
+
+.login {
+    border-radius: 10px;
+    background-color: rgb(173, 174, 174);
 }

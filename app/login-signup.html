@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping List</title>
-    <link rel="stylesheet" href="Shopping_list_stylesheet.css">
-    <link rel="icon" type="image/jpg" href="Images/Pantry_169.png">
+    <link rel="stylesheet" href="Style.css">
+    <title>Pantry App Login/Signup</title>
 </head>
-
 <body>
     <div class="container">
         <div class="title-container">
@@ -17,13 +14,13 @@
                     <img src="Images/Ham-Button.png" width="24px" height="24px" alt="Menu Button">
                 </button>
                 <div class="content">
-                    <a href="login-signup.html">Home</a>
                     <a href="index.html">Pantry</a>
+                    <a href="shopping_list.html">Shopping List</a>
                 </div>
             </div>
             <div class="title">
                 <header>
-                    <h1 id="Shopping list_title">Shopping list</h1>
+                    <h1 id="pantry_title">Pantry Login/Sign Up</h1>
                 </header>
             </div>
             <div class="mode-toggle">
@@ -33,20 +30,16 @@
         </div>
 
         <div class="all_searches">
-            <input type="text" id="enter_food" class="item-input" placeholder="Enter Food Item">
-            <input type="number" id="enter_quantity" class="item-input" min="1" value="1" placeholder="Quantity">
+            <input type="type" id="email" class="item-input" placeholder="Enter your email">
+            <input type="password" id="password" name="pass" class="item-input" placeholder="Enter your password">
             <input type="text" id="search_bar" placeholder="Search Bar">
-            <button class="add-item" onclick="addItem()">Add Item</button>
-
-            <dl id="itemlist" class="list">
-                <input type="text" id="list_header" placeholder="type your header/title here!">
-            </dl>
-            
-
-
-
+            <div id="buttons">
+                <button class="login" onclick="login()">Login</button>
+                <button class="signup" onclick="signup()">Sign Up</button>
+            </div>
+            <ul id="itemlist" class="list"></ul>
         </div>
     </div>
-    <script src="Shoppinglist_.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
