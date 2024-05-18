@@ -80,3 +80,46 @@ function plural(word, amount) {
     }
     return word;
 }
+
+function addItem() {
+    const quantityElement = document.getElementById('enter_quantity');
+    let quantity = Number(quantityElement.value.trim());
+    const foodElement = document.getElementById('enter_food');
+    let food = foodElement.value.trim();
+
+    if (food === '') {
+        alert('Please enter a food item');
+    }
+
+    const itemList = document.getElementById('itemlist');
+    const newItem = document.createElement('li');
+    itemList.appendChild(newItem);
+
+    newItem.innerHTML = `<span class="item-quantity">${quantity}</span> <span class="item-name">${plural(food, quantity)}</span>`;
+}
+
+function addShoppingItem() {
+    const quantityElement = document.getElementById('enter_quantity_shopping');
+    let quantity = Number(quantityElement.value.trim());
+    const foodElement = document.getElementById('enter_food_shopping');
+    let food = foodElement.value.trim();
+
+    if (food === '') {
+        alert('Please enter a food item');
+    }
+
+    const itemList = document.getElementById('shoppingitemlist');
+    const newItem = document.createElement('li');
+    itemList.appendChild(newItem);
+
+    newItem.innerHTML = `<span class="item-quantity">${quantity}</span> <span class="item-name">${plural(food, quantity)}</span>`;
+}
+
+document.getElementById('mode-toggle-checkbox').addEventListener('change', function() {
+    document.body.classList.toggle('light-mode', this.checked);
+});
+
+document.getElementById('open-shopping-list').addEventListener('click', function() {
+    const shoppingListContainer = document.getElementById('shopping-list');
+    shoppingListContainer.style.display = shoppingListContainer.style.display === 'none' ? 'flex' : 'none';
+});
