@@ -1,3 +1,14 @@
+@font-face {
+    src: url(fonts/ChakraPetch-Light.ttf);
+    font-family: ChakraPetch;
+    src: url(fonts/Dosis-VariableFont_wght.ttf);
+    font-family: Dosis;
+    src: url(fonts/PoetsenOne-Regular.ttf);
+    font-family: PoestsenOne;
+    src: url(fonts/TitilliumWeb-Light.ttf);
+    font-family: TitilliumWeb;
+}
+
 .container,
 .shopping-list-container .container,
 .shopping-list-container {
