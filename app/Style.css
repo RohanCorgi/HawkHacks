@@ -102,7 +102,7 @@ body.light-mode .title {
     position: relative;
     cursor: pointer;
     transition: background-color 0.3s;
-    border: 1px solid #000; /* Add border */
+
 }
 
 .slider::before {
@@ -343,4 +343,16 @@ body.light-mode .Chatbot-Output{
     font-size: 1em;
     margin-top: 10px;
     display: none; /* Initially hidden */
+}
+
+.clear_button{
+   background-color: #555; 
+   color: white;
+   border-radius: 20px;
+   height: 20px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   border: 1px solid white;
+   margin-top: 10px;
 }
