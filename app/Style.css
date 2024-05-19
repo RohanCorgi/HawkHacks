@@ -39,7 +39,7 @@ body.light-mode {
 .container,
 .shopping-list-container .container,
 .shopping-list-container {
-    background-color: rgb(153, 153, 153);
+    background-color: rgb(100, 100, 100);
     height: auto;
     width: auto;
     max-width: 500px;
@@ -102,7 +102,7 @@ body.light-mode .title {
     position: relative;
     cursor: pointer;
     transition: background-color 0.3s;
-    border: 1px solid #000; /* Add border */
+
 }
 
 .slider::before {
@@ -138,6 +138,11 @@ body.light-mode .slider {
     width: calc(100% - 22px);
     margin-bottom: 10px;
     font-size: 1em;
+    background-color:#adacac;
+}
+
+body.light-mode .item-input{
+    background-color: #d0cdcd;
 }
 
 #enter_food,
@@ -315,7 +320,6 @@ body.light-mode .list li .remove-item {
     background-color: rgb(91, 91, 91);
     width: 400px;
     height: auto;
-    max-height: 1000px;
     border: solid 2px;
     border-radius: 10px;
     padding: 10px;
@@ -344,4 +348,30 @@ body.light-mode .Chatbot-Output{
     font-size: 1em;
     margin-top: 10px;
     display: none; /* Initially hidden */
+}
+
+.clear_button{
+   background-color: #555; 
+   color: white;
+   border-radius: 20px;
+   height: 20px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   border: 1px solid white;
+   margin-top: 10px;
+   font-weight: bold;
+   font-family: Dosis;
+}
+
+body.light-mode .clear_button{
+    background-color: #b8b6b6;
+    color: #333;
+}
+.clear_button:hover{
+    background-color: #6d6b6b; 
+}
+
+body.light-mode .clear_button:hover{
+    background-color: #9c9c9c;
 }
