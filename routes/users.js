@@ -33,20 +33,16 @@ router.post('/api/users/', async (req, res) => {
     try {
             console.log('sign up')
             const user = User.findOne({ 'email': req.body.email })
-            if (user) {
-                res.status(300).send('Account already exists')
-            } else {
-                const new_user = new User({
-                    'email': req.body.email,
-                    'password': req.body.password,
-                    'token': token(),
-                    'pantry_items': req.body.pantry_items,
-                    'shopping_list': req.body.shopping_list
-                })
-                user.save()
-                res.status(200).send(new_user.token)
-            }
-    } catch (error) {
+            const new_user = new User({
+                'email': req.body.email,
+                'password': req.body.password,
+                'token': token(),
+                'pantry_items': req.body.pantry_items,
+                'shopping_list': req.body.shopping_list
+            })
+            new_user.save()
+            res.status(200).send(new_user.token)
+        } catch (error) {
         console.error(error)
         res.status(500).send('There was an error creating the account')
     }
