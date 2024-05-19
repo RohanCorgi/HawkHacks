@@ -40,6 +40,11 @@ function addItem(is_shopping_list) {
         }
     })
     if (ret) return;
+    foods.push({
+        name: food,
+        quantity: quantity,
+        expiry: null
+    })
     foods_info = foods
 
     const newItem = document.createElement('li');
@@ -59,9 +64,16 @@ function addItem(is_shopping_list) {
         `
         // Update expiry date span on item addition (optional)
         const expiryDateInput = newItem.querySelector('.expiry-date');
-        expiryDateInput.addEventListener('change', function() {
+        expiryDateInput.addEventListener('change', () => {
             const date = this.value;
             // TODO: Make it update the expiry date in real time
+            for (let i = 0; i < foods_info; i++) {
+                if (foods_info[i]["name"] == food) {
+                    foods_info[i]["exipry"] = date
+                    break
+                }
+            }
+            console.log(foods_info)
         });
         // TODO: Make it save to local storage
     } else {
