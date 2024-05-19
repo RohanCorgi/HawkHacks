@@ -46,6 +46,13 @@ function addItem(is_shopping_list) {
             console.log(foods)
         }
     })
+    if (!ret) {
+        foods.push({
+            name: food,
+            quantity: quantity,
+            expiry: null
+        })
+    }
     foods_info = foods
     localStorage.setItem('pantry_items', JSON.stringify(foods_info))
     if (ret) return;
