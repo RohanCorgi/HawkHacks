@@ -178,7 +178,21 @@ function signup() {
 
 function updateUser() {
     var token = localStorage.getItem('token')
+    var items = localStorage.getItem('items')
 
+    fetch(`http://localhost:3000/api/users/${token}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            items: items
+        })
+    })
+    .then((response) => response.text())
+    .then((response) => {
+        console.log(response)
+    })
 }
 
 function chat() {
