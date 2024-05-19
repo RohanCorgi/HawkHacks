@@ -39,7 +39,7 @@ body.light-mode {
 .container,
 .shopping-list-container .container,
 .shopping-list-container {
-    background-color: rgb(153, 153, 153);
+    background-color: rgb(142, 141, 141);
     height: auto;
     width: auto;
     max-width: 500px;
@@ -300,7 +300,9 @@ body.light-mode .item-name, .item-quantity{
     align-items: center;
 }
 
-
+body.light-mode .pick{
+    background-color: #bbb;
+}
 
 ul{
     list-style: none;
