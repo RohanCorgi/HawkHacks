@@ -79,11 +79,7 @@ router.get('/api/users/getbyemail/:email', async (req, res) => {
 
 router.put('/api/users/:token', async (req, res) =>  {
     try {
-        const acc = await User.findOne({token: req.params.token})
-        if (acc == null) {
-            res.status(404).send('The account you want to update does not exist')
-        } else {
-            User.updateOne({ token: req.params.token }, 
+            await User.updateOne({ token: req.params.token }, 
                 {
                     $set: {
                         pantry_items: req.body.pantry_items,
@@ -92,8 +88,7 @@ router.put('/api/users/:token', async (req, res) =>  {
                 }   
             )
             res.status(200).send('Successfully updated account')
-        }
-    } catch (error) {
+        } catch (error) {
         console.error(error)
         res.status(500).send('There was an error connecting to the account')
     }

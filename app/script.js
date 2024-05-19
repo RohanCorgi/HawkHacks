@@ -48,6 +48,7 @@ function addItem(is_shopping_list) {
     })
     foods_info = foods
     localStorage.setItem('pantry_items', JSON.stringify(foods_info))
+    updateUser()
     if (ret) return;
 
     const newItem = document.createElement('li');
@@ -77,6 +78,7 @@ function addItem(is_shopping_list) {
                 }
             }
             localStorage.setItem('pantry_items', JSON.stringify(foods_info))
+            updateUser()
         });
     } else {
         newItem.querySelectorAll('.item-quantity, .item-name').forEach((e) => {
@@ -85,8 +87,6 @@ function addItem(is_shopping_list) {
     }
 
     itemList.appendChild(newItem);
-
-    updateUser()
 }
 
 function removeItem(button) {
@@ -165,18 +165,24 @@ function login() {
         fetch(`http://localhost:3000/api/users/${token}/`)
         .then((response) => (response.json()))
         .then((response) => {
-            localStorage.setItem('items',response.items)
+            localStorage.setItem('pantry_items',JSON.stringify(response.pantry_items))
+            localStorage.setItem('shopping_list',JSON.stringify(response.shopping_list))
         })
-    } else {
-
     }
+}
+
+function storageToList (){
+    pantry_items = localStorage.getItem('pantry_items')
+    shopping_list = localStorage.getItem('shopping_list')
+
+    
 }
 
 function signup() {
     let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
-    var items = localStorage.getItem('pantry_items')
-    var shopping_list = localStorage.getItem('shopping_list')
+    var items = JSON.parse(localStorage.getItem('pantry_items'))
+    var shopping_list = JSON.parse(localStorage.getItem('shopping_list'))
 
     fetch(`http://localhost:3000/api/users/`, {
         method: "POST",
@@ -198,8 +204,8 @@ function signup() {
 
 function updateUser() {
     var token = localStorage.getItem('token')
-    var items = localStorage.getItem('pantry_items')
-    var shopping_list = localStorage.getItem('shopping_list')
+    var items = JSON.parse(localStorage.getItem('pantry_items'))
+    var shopping_list = JSON.parse(localStorage.getItem('shopping_list'))
 
     fetch(`http://localhost:3000/api/users/${token}`, {
         method: "PUT",
@@ -211,7 +217,7 @@ function updateUser() {
             shopping_list: shopping_list
         })
     })
-    .then((response) => response.text())
+    .then((response) => (response.text()))
     .then((response) => {
         console.log(response)
     })
