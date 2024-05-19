@@ -52,6 +52,7 @@
         window.onload = function ()  {
             var pantry_items = JSON.parse(localStorage.getItem('pantry_items')),
                 itemList = document.querySelector('#itemlist')
+            if (!pantry_items) return;
             for (var item of pantry_items) {
                 console.log(item)
                 const newItem = document.createElement('li');

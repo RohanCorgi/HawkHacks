@@ -58,7 +58,9 @@ function addItem(is_shopping_list) {
         foods.push(obj)
     }
     foods_info = foods
-    localStorage.setItem('pantry_items', JSON.stringify(foods_info))
+    let save_to = 'pantry_items'
+    if (is_shopping_list) save_to = 'shopping_list'
+    localStorage.setItem(save_to, JSON.stringify(foods_info))
     updateUser()
     if (ret) return;
 

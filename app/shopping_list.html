@@ -62,6 +62,25 @@
     <script>
         let a = document.getElementById('list_headerid')
         a.onkeypress = headerKey(a)
+
+        window.onload = function ()  {
+            var shopping_list = JSON.parse(localStorage.getItem('shopping_list')),
+                itemList = document.querySelector('#itemlist')
+            console.log(shopping_list)
+            if (shopping_list == null) return;
+            for (var item of shopping_list) {
+                console.log(item)
+                const newItem = document.createElement('li');
+                newItem.id = generateAlphabeticalID(10);  // Generate unique ID
+
+                // Constructing the list item HTML
+                newItem.innerHTML = `
+                    <span class="item-quantity">${item.quantity}</span>
+                    <span class="item-name">${item.name}</span>
+                `;
+                itemList.appendChild(newItem);
+            }
+        }
     </script>
 </body>
 
