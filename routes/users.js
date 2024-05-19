@@ -1,5 +1,4 @@
 const express = require("express");
-const { UsersApiService } = require('neurelo-sdk')
 const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
