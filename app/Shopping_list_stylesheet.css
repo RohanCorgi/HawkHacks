@@ -328,16 +328,16 @@ ul li:hover{
 }
 
 #green{
-background-color: rgb(77, 250, 77);
+    background-color: rgb(77, 250, 77);
 }
 #blue{
-background-color: rgb(74, 74, 243);
+    background-color: rgb(74, 74, 243);
 }
 #white{
-background-color: white;
+    background-color: white;
 }
 #black{
-background-color: rgb(0, 0, 0);
+    background-color: rgb(0, 0, 0);
 }
 
 .button-group {
