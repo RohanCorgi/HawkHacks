@@ -28,7 +28,7 @@ function addItem(is_shopping_list) {
 
     const itemList = document.getElementById('itemlist');
 
-    const items = document.querySelectorAll('#itemlist li .item-name' ? !is_shopping_list : '#itemlist *')
+    const items = document.querySelectorAll('#itemlist li .item-name')
     let ret = false;
     let foods = []
     items.forEach((v, idx) => {
@@ -44,15 +44,6 @@ function addItem(is_shopping_list) {
                 expiry: document.querySelectorAll('#itemlist li .expiry-date')[idx].value
             })
             console.log(foods)
-        } else {
-            console.log(v)
-            let obj = {
-                name: v.innerText,
-                style: 'header' ? (v.classList.contains('list_header') || v.classList.contains('finished-header')) : 'food'
-            }
-            if (obj.style === 'food') obj.quantity = Number(quantity_elm.innerText);
-            console.log(obj)
-            foods.push(obj)
         }
     })
     if (!ret) {
@@ -63,7 +54,7 @@ function addItem(is_shopping_list) {
         })
     }
     foods_info = foods
-    localStorage.setItem('pantry_items' ? !is_shopping_list : 'shopping_list', JSON.stringify(foods_info))
+    localStorage.setItem('pantry_items', JSON.stringify(foods_info))
     if (ret) return;
 
     const newItem = document.createElement('li');
@@ -92,7 +83,7 @@ function addItem(is_shopping_list) {
                     break
                 }
             }
-            localStorage.setItem('pantry_items' ? !is_shopping_list : 'shopping_list', JSON.stringify(foods_info))
+            localStorage.setItem('pantry_items', JSON.stringify(foods_info))
         });
     } else {
         newItem.querySelectorAll('.item-quantity, .item-name').forEach((e) => {
