@@ -84,6 +84,8 @@ function addItem(is_shopping_list) {
     }
 
     itemList.appendChild(newItem);
+
+    updateUser()
 }
 
 function removeItem(button) {
@@ -96,6 +98,7 @@ function removeItem(button) {
             break
         }
     }
+    updateUser()
 }
 
 function clearExpiry(button) {
@@ -108,6 +111,7 @@ function clearExpiry(button) {
             break
         }
     }
+    updateUser()
 }
 
 /**
