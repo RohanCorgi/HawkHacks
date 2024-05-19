@@ -39,7 +39,7 @@ body.light-mode {
 .container,
 .shopping-list-container .container,
 .shopping-list-container {
-    background-color: rgb(142, 141, 141);
+    background-color: rgb(100, 100, 100);
     height: auto;
     width: auto;
     max-width: 500px;
@@ -54,7 +54,7 @@ body.light-mode {
 }
 
 body.light-mode .container {
-    background-color: #f9f9f9;
+    background-color: #dad8d8;
 }
 
 .title-container {
