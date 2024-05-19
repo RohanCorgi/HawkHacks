@@ -318,9 +318,14 @@ body.light-mode .list li .remove-item {
     max-height: 1000px;
     border: solid 2px;
     border-radius: 10px;
-    display: none;
     padding: 10px;
     margin-top: 20px;
+    color: white;
+}
+
+body.light-mode .Chatbot-Output{
+    background-color: #e2e1e1;
+    color: #000000;
 }
 
 .checkbox-border {
