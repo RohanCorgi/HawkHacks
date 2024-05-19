@@ -65,10 +65,11 @@ function addItem(is_shopping_list) {
         // Update expiry date span on item addition (optional)
         const expiryDateInput = newItem.querySelector('.expiry-date');
         expiryDateInput.addEventListener('change', () => {
-            const date = this.value;
+            const date = document.getElementById(`expiry_date_${newItem.id}`).value;
             // TODO: Make it update the expiry date in real time
             for (let i = 0; i < foods_info.length; i++) {
                 if (foods_info[i]["name"] == food) {
+                    console.log(date)
                     foods_info[i]["expiry"] = date
                     break
                 }
@@ -100,6 +101,13 @@ function removeItem(button) {
 function clearExpiry(button) {
     const expiryInput = button.parentElement.querySelector('.expiry-date');
     expiryInput.value = "";
+    let name = button.parentElement.querySelector('.item-name').innerText
+    for (let i = 0; i < foods_info.length; i++) {
+        if (foods_info[i].name === name) {
+            foods_info[i].expiry = null
+            break
+        }
+    }
 }
 
 /**
