@@ -156,6 +156,8 @@ function login() {
 function signup() {
     let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
+    var items = localStorage.getItem('pantry_items')
+    var shopping_list = localStorage.getItem('shopping_list')
 
     fetch(`http://localhost:3000/api/users/`, {
         method: "POST",
@@ -165,7 +167,8 @@ function signup() {
         body: JSON.stringify({
             email: email,
             password: password,
-            items: [] //Get a list with objects
+            pantry_items: items || [],
+            shopping_list: shopping_list || [] //Get a list with objects
         })
     })
     .then((response) => response.text())
@@ -176,7 +179,8 @@ function signup() {
 
 function updateUser() {
     var token = localStorage.getItem('token')
-    var items = localStorage.getItem('items')
+    var items = localStorage.getItem('pantry_items')
+    var shopping_list = localStorage.getItem('shopping_list')
 
     fetch(`http://localhost:3000/api/users/${token}`, {
         method: "PUT",
@@ -184,7 +188,8 @@ function updateUser() {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            items: items
+            pantry_items: items,
+            shopping_list: shopping_list
         })
     })
     .then((response) => response.text())

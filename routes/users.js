@@ -6,9 +6,13 @@ const UserSchema = new mongoose.Schema({
     email: String,
     password: String,
     token: String,
-    items: [{
+    pantry_items: [{
         name: String,
         expiry: Date,
+        quantity: Number
+    }],
+    shopping_list: [{
+        name: String,
         quantity: Number
     }]
 })
@@ -36,7 +40,8 @@ router.post('/api/users/', async (req, res) => {
                     'email': req.body.email,
                     'password': req.body.password,
                     'token': token(),
-                    'items': req.body.items
+                    'pantry_items': req.body.pantry_items,
+                    'shopping_list': req.body.shopping_list
                 })
                 user.save()
                 res.status(200).send(new_user.token)
