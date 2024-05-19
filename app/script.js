@@ -33,7 +33,7 @@ function addItem(is_shopping_list) {
             foods.push({
                 name: v.innerText,
                 quantity: Number(document.querySelectorAll('#itemlist li .item-quantity')[idx].value),
-                exipry: document.querySelectorAll('#itemlist li .expiry-date')[idx].value
+                expiry: document.querySelectorAll('#itemlist li .expiry-date')[idx].value
             })
             let a = document.querySelector('#itemlist li .expiry-date')
             console.log(a.value)
@@ -67,9 +67,9 @@ function addItem(is_shopping_list) {
         expiryDateInput.addEventListener('change', () => {
             const date = this.value;
             // TODO: Make it update the expiry date in real time
-            for (let i = 0; i < foods_info; i++) {
+            for (let i = 0; i < foods_info.length; i++) {
                 if (foods_info[i]["name"] == food) {
-                    foods_info[i]["exipry"] = date
+                    foods_info[i]["expiry"] = date
                     break
                 }
             }
@@ -87,15 +87,19 @@ function addItem(is_shopping_list) {
 
 function removeItem(button) {
     button.parentElement.remove();
+    let name = button.parentElement.querySelector('.item-name').innerText
+    console.log(name)
+    for (let i = 0; i < foods_info.length; i++) {
+        if (foods_info[i].name === name) {
+            foods_info.splice(i, 1);
+            break
+        }
+    }
 }
 
 function clearExpiry(button) {
     const expiryInput = button.parentElement.querySelector('.expiry-date');
     expiryInput.value = "";
-}
-
-function removeItem(button) {
-    button.parentElement.remove();
 }
 
 /**
