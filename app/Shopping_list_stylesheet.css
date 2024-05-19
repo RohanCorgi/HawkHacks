@@ -220,6 +220,7 @@ body.light-mode .list_header:hover {
 .dropdown {
     position: relative;
     display: inline-block;
+    margin-right: 10px;
 }
 
 .dropdown_button {
@@ -322,7 +323,7 @@ ul li{
 }
 
 ul li:hover{
-    transform:scale(1.1);
+    transform:scale(1.5);
 }
 
 #red{
@@ -344,6 +345,6 @@ ul li:hover{
 
 .button-group {
     display: flex;
-    align-items: center; /* Vertically center the elements */
-    gap: 10px; /* Add some space between the elements */
+    align-items: center; 
+    gap: 10px;
 }
