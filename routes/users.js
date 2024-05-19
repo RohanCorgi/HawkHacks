@@ -60,13 +60,8 @@ router.get('/api/users/:token', async (req, res) => {
     }
 })
 
-// router.put('/users/:token', async (req, res) => {
-//     try {
-//         const acc = await UsersApiService.updateUsers({'token': req.params.token}, {})
-//     } catch (error) {
-//         console.error(error)
-//         res.status(500).send('There was an error updating your account')
-//     }
-// })
+router.put('/api/users/:token', async (req, res) =>  {
+
+})
 
 module.exports = router
