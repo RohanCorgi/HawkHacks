@@ -60,8 +60,6 @@ router.get('/api/users/:token', async (req, res) => {
     }
 })
 
-router.put('/api/users/:token', async (req, res) =>  {
-
-})
+router.put('/api/users/:token', async (req, res) =>  {})
 
 module.exports = router
