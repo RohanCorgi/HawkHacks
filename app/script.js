@@ -1,4 +1,12 @@
 var foods_info = []
+var color = 'black'
+let text_colors = {
+    red: "rgb(241, 47, 47)",
+    green: "rgb(77, 250, 77)",
+    blue: "rgb(74, 74, 243)",
+    white: "white",
+    black: "rgb(0, 0, 0)"
+}
 
 function addItem(is_shopping_list) {
     const quantityElement = document.getElementById('enter_quantity');
@@ -56,6 +64,10 @@ function addItem(is_shopping_list) {
             // TODO: Make it update the expiry date in real time
         });
         // TODO: Make it save to local storage
+    } else {
+        newItem.querySelectorAll('.item-quantity, .item-name').forEach((e) => {
+            e.style.color = text_colors[color]
+        })
     }
 
     itemList.appendChild(newItem);
@@ -170,4 +182,14 @@ function chat() {
     })
     .then((response) => (response.text()))
     .then((text) => document.getElementById('Chatbot-Output').innerText=text)
+}
+
+/**
+ * @param {HTMLLIElement} color_elm 
+ */
+function color_change(color_elm) {
+    let colors = document.querySelectorAll('.color-item')
+    colors.forEach((c) => {c.classList.remove('selected-color')})
+    color_elm.classList.add('selected-color')
+    color = color_elm.id
 }
