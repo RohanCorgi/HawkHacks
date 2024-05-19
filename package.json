@@ -4,7 +4,6 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "mongoose": "^8.4.0",
-    "neurelo-sdk": "file:../../../../Downloads/neurelo-sdk-typescript-cmt_6e7449.tgz",
     "openai": "^4.47.1"
   }
 }
