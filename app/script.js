@@ -90,10 +90,8 @@ function removeItem(button) {
 }
 
 function clearExpiry(button) {
-  const expiryInput = button.parentElement.querySelector('.expiry-date');
-  const expirySpan = button.parentElement.querySelector('.item-expiry');
-  expiryInput.value = "";
-  expirySpan.textContent = "";
+    const expiryInput = button.parentElement.querySelector('.expiry-date');
+    expiryInput.value = "";
 }
 
 function removeItem(button) {
