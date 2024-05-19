@@ -48,6 +48,29 @@
         </div>
     </div>
     <script src="script.js"></script>
+    <script>
+        window.onload = function ()  {
+            var pantry_items = JSON.parse(localStorage.getItem('pantry_items')),
+                itemList = document.querySelector('#itemlist')
+            for (var item of pantry_items) {
+                console.log(item)
+                const newItem = document.createElement('li');
+                newItem.id = generateAlphabeticalID(10);  // Generate unique ID
+
+                // Constructing the list item HTML
+                newItem.innerHTML = `
+                    <span class="item-quantity">${item.quantity}</span>
+                    <span class="item-name">${item.name}</span>
+                `;
+                newItem.innerHTML += `
+                    <input type="date" id="expiry_date_${item.expiry}" class="expiry-date">
+                    <button class="remove-item" onclick="removeItem(this)">Remove</button>
+                    <button class="clear-expiry" onclick="clearExpiry(this)">Clear Expiry</button>
+                `;
+                itemList.appendChild(newItem);
+        }
+    }
+    </script>
 </body>
 
 </html>

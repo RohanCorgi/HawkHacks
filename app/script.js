@@ -76,7 +76,7 @@ function addItem(is_shopping_list) {
             <input type="date" id="expiry_date_${newItem.id}" class="expiry-date">
             <button class="remove-item" onclick="removeItem(this)">Remove</button>
             <button class="clear-expiry" onclick="clearExpiry(this)">Clear Expiry</button>
-        `
+        ` // dont delete this line
         // Update expiry date span on item addition (optional)
         const expiryDateInput = newItem.querySelector('.expiry-date');
         expiryDateInput.addEventListener('change', () => {
@@ -186,7 +186,7 @@ function storageToList (){
     pantry_items = localStorage.getItem('pantry_items')
     shopping_list = localStorage.getItem('shopping_list')
 
-    
+
 }
 
 function signup() {
