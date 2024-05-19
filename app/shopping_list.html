@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +7,6 @@
     <link rel="stylesheet" href="Shopping_list_stylesheet.css">
     <link rel="icon" type="image/jpg" href="Images/Pantry_169.png">
 </head>
-
 <body>
     <div class="container">
         <div class="title-container">
@@ -38,9 +36,18 @@
             </div>
 
             <input type="text" id="search_bar" placeholder="Search Bar">
-            <div class="add_header">
+            <div class="button-group"> <!-- New wrapper div -->
                 <button class="add-item" id="additemid" onclick="addItem(true)">Add Item</button>
                 <button id="add_header" class="More-header" onclick="addHeader()">Add Header</button>
+                <div class="pick">
+                    <ul>
+                        <li class="color-item" id="red"></li>
+                        <li class="color-item" id="green"></li>
+                        <li class="color-item" id="blue"></li>
+                        <li class="color-item" id="black"></li>
+                        <li class="color-item" id="white"></li>
+                    </ul>
+                </div>
             </div>
             <dl id="itemlist" class="list">
                 <input type="text" class="list_header" id="list_headerid" placeholder="Type your header/title here!">
@@ -53,5 +60,4 @@
         a.onkeypress = headerKey(a)
     </script>
 </body>
-
 </html>

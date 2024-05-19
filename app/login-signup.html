@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pantry App Login/Signup</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Style.css">
     <link rel="icon" type="image/jpg" href="Images/Pantry_169.png">
 </head>
 
@@ -27,9 +27,12 @@
                     <h1 id="pantry_title">Pantry Login/Sign Up</h1>
                 </header>
             </div>
-            <div class="mode-toggle">
-                <input type="checkbox" id="mode-toggle-checkbox">
-                <label for="mode-toggle-checkbox" class="slider"></label>
+            <div class="checkbox-border">
+                <div class="mode-toggle">
+                    <input type="checkbox" id="mode-toggle-checkbox">
+                    <label for="mode-toggle-checkbox" class="slider"></label>
+
+                </div>
             </div>
         </div>
 
@@ -45,65 +48,10 @@
         </div>
     </div>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const loginBtn = document.querySelector('.login');
-            const signupBtn = document.querySelector('.signup');
 
-            function getUserData() {
-                return JSON.parse(localStorage.getItem('users')) || [];
-            }
-
-            function saveUserData(users) {
-                localStorage.setItem('users', JSON.stringify(users));
-            }
-
-            function login() {
-                const email = document.getElementById('email').value;
-                const password = document.getElementById('password').value;
-
-                if (!email || !password) {
-                    alert('Please fill out both fields');
-                    return;
-                }
-
-                const users = getUserData();
-                const user = users.find(user => user.email === email && user.password === password);
-
-                if (user) {
-                    alert('Login successful!');
-                } else {
-                    alert('Invalid email or password');
-                }
-            }
-
-            function signup() {
-                const email = document.getElementById('email').value;
-                const password = document.getElementById('password').value;
-
-                if (!email || !password) {
-                    alert('Please fill out both fields');
-                    return;
-                }
-
-                const users = getUserData();
-                const userExists = users.some(user => user.email === email);
-
-                if (userExists) {
-                    alert('User already exists with this email');
-                    return;
-                }
-
-                const newUser = { email, password };
-                users.push(newUser);
-                saveUserData(users);
-                alert('Signup successful!');
-            }
-
-            loginBtn.addEventListener('click', login);
-            signupBtn.addEventListener('click', signup);
-        });
     </script>
 
     <script src="script.js"></script>
 </body>
+
 </html>

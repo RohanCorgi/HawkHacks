@@ -120,23 +120,22 @@ function login() {
     let token = localStorage.getItem('token')
     console.log('login', email, password, token)
 
-    fetch(`http://localhost:3000/users/${token}`).then((response) => {
-        if (response.ok) {
-            var items = response.items
-            localStorage.setItem('items', items)
-            alert(response.json)
-        } else {
-            alert('There was an error getting your login')
-        }
-    })
+    if (token) {
+        fetch(`http://localhost:3000/api/users/${token}/`)
+        .then((response) => (response.json()))
+        .then((response) => {
+            alert(response)
+        })
+    } else {
+
+    }
 }
 
 function signup() {
     let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
-    console.log('signup', email, password);
 
-    fetch(`http://localhost:3000/users`, {
+    fetch(`http://localhost:3000/api/users/`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -146,12 +145,25 @@ function signup() {
             password: password,
             items: [] //Get a list with objects
         })
-    }).then((response) => {
-        if (response.ok) {
-            alert('Signup successful!');
-        } else {
-            alert('There was an error during signup');
-        }
-    });
+    })
+    .then((response) => response.text())
+    .then((response) => {
+        localStorage.setItem('token', response)
+    })
 }
 
+function chat() {
+    var chat_prompt = document.getElementById('enter_prompt').value
+    console.log(chat_prompt)
+    fetch(`http://localhost:3000/api/chat/`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            prompt: chat_prompt
+        })
+    })
+    .then((response) => (response.text()))
+    .then(text => console.log(text))
+}
