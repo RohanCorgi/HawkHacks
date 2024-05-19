@@ -46,9 +46,7 @@ router.post('/api/users/', async (req, res) => {
 
 router.get('/api/users/:token', async (req, res) => {
     try {
-        const acc = await UsersApiService.findUsers({
-            'token': req.params.token
-        })
+        const acc = await User.findOne({token: req.params.token})
         if (acc == null) {
             res.status(404).send('This account does not exist')
         } else {
