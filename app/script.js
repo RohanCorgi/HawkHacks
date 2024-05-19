@@ -181,7 +181,25 @@ function login() {
             localStorage.setItem('pantry_items',JSON.stringify(response.pantry_items))
             localStorage.setItem('shopping_list',JSON.stringify(response.shopping_list))
         })
+    } else {
+        fetch(`http://localhost:3000/api/users/getByEmail/${email}`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({password: password})
+        })
+        .then(response => (response.json()))
+        .then((response) => {
+            localStorage.setItem('pantry_items',JSON.stringify(response.pantry_items))
+            localStorage.setItem('shopping_list',JSON.stringify(response.shopping_list))
+            localStorage.setItem('token',JSON.stringify(response.token))
+        })
     }
+}
+
+function logout() {
+    localStorage.setItem('token', '')
 }
 
 function storageToList (){

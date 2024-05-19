@@ -31,7 +31,6 @@ const router = express.Router()
 router.post('/api/users/', async (req, res) => {
     try {
             console.log('sign up')
-            const user = User.findOne({ 'email': req.body.email })
             const new_user = new User({
                 'email': req.body.email,
                 'password': req.body.password,
@@ -62,13 +61,17 @@ router.get('/api/users/:token', async (req, res) => {
     }
 })
 
-router.get('/api/users/getbyemail/:email', async (req, res) => {
+router.post('/api/users/getByEmail/:email', async (req, res) => {
     try {
         const acc = await User.findOne({email: req.params.email})
         if (acc == null) {
             res.status(404).send('This account does not exist')
         } else {
-            res.status(200).send(acc)
+            if (acc.password == req.body.password) {
+                res.status(200).send(acc)
+            } else {
+                res.status(300).send('Incorrect password')
+            }
         }
     } catch (error) {
         console.error(error)
