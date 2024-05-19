@@ -321,7 +321,6 @@ body.light-mode .list li .remove-item {
     max-height: 1000px;
     border: solid 2px;
     border-radius: 10px;
-    display: none;
 }
 .checkbox-border{
     border: 1px solid;

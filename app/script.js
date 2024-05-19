@@ -152,6 +152,10 @@ function signup() {
     })
 }
 
+function updateUser() {
+    var token = localStorage.getItem()
+}
+
 function chat() {
     var chat_prompt = document.getElementById('enter_prompt').value
     console.log(chat_prompt)
@@ -165,5 +169,5 @@ function chat() {
         })
     })
     .then((response) => (response.text()))
-    .then(text => console.log(text))
+    .then((text) => document.getElementById('Chatbot-Output').innerText=text)
 }
