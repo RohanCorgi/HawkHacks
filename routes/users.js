@@ -86,7 +86,8 @@ router.put('/api/users/:token', async (req, res) =>  {
             User.updateOne({ token: req.params.token }, 
                 {
                     $set: {
-                        items: req.body.items
+                        pantry_items: req.body.pantry_items,
+                        shopping_list: req.body.shopping_list
                     }
                 }   
             )

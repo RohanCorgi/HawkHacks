@@ -85,6 +85,8 @@ function addItem(is_shopping_list) {
     }
 
     itemList.appendChild(newItem);
+
+    updateUser()
 }
 
 function removeItem(button) {
@@ -98,6 +100,7 @@ function removeItem(button) {
         }
     }
     localStorage.setItem('pantry_items', JSON.stringify(foods_info))
+    updateUser()
 }
 
 function clearExpiry(button) {
@@ -111,6 +114,7 @@ function clearExpiry(button) {
         }
     }
     localStorage.setItem('pantry_items', JSON.stringify(foods_info))
+    updateUser()
 }
 
 /**
