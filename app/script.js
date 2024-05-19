@@ -132,18 +132,15 @@ function login() {
     let token = localStorage.getItem('token')
     console.log('login', email, password, token)
 
-    fetch(`http://localhost:3000/users/${token}/`).then((response) => {
-        console.log('Sending request')
-        if (response.ok) {
-            var items = response.items
-            localStorage.setItem('items', items)
-            alert(response.json)
-        } else {
-            alert('There was an error getting your login')
-        }
-    }).catch((error) => {
-        console.error(error)
-    })
+    if (token) {
+        fetch(`http://localhost:3000/api/users/${token}/`)
+        .then((response) => (response.json()))
+        .then((response) => {
+            alert(response)
+        })
+    } else {
+
+    }
 }
 
 function signup() {
@@ -160,14 +157,15 @@ function signup() {
             password: password,
             items: [] //Get a list with objects
         })
-    }).then((response) => (response.ok))
-    .then((is_ok) => {
-        if (is_ok) {
-            alert('Signup successful!');
-        } else {
-            alert('There was an error during signup');
-        }
-    });
+    })
+    .then((response) => response.text())
+    .then((response) => {
+        localStorage.setItem('token', response)
+    })
+}
+
+function updateUser() {
+    var token = localStorage.getItem()
 }
 
 function chat() {
@@ -175,12 +173,15 @@ function chat() {
     console.log(chat_prompt)
     fetch(`http://localhost:3000/api/chat/`, {
         method: "POST",
-        body: {
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
             prompt: chat_prompt
-        }
-    }).then((response) => {
-        alert(response.text())
+        })
     })
+    .then((response) => (response.text()))
+    .then((text) => document.getElementById('Chatbot-Output').innerText=text)
 }
 
 /**
