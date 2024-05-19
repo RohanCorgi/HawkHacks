@@ -146,10 +146,10 @@ body.light-mode .slider {
     background-color: #d1cece;
     color: black;
 }
-body.light-mode #enter_food:hover, #enter_quantity:hover{
+
+body.light-mode #enter_food:hover, #enter_quantity:hover {
     background-color: #dcdada;
 }
-
 
 .add-item,
 .More-header {
@@ -179,11 +179,9 @@ body.light-mode .More-header:hover {
     background-color: #999;
 }
 
-
-body.light-mode .list{
+body.light-mode .list {
     background-color: rgb(184, 184, 184);
 }
-
 
 .list_header {
     border-radius: 10px;
@@ -210,7 +208,7 @@ body.light-mode .list_header:hover {
 .dropdown {
     position: relative;
     display: inline-block;
-    margin-right:10px ;
+    margin-right: 10px;
 }
 
 .dropdown_button {
@@ -263,8 +261,6 @@ body.light-mode .list_header:hover {
     display: none;
 }
 
-
-
 .list {
     padding: 0;
     margin: 0;
@@ -315,7 +311,7 @@ body.light-mode .list li .remove-item {
     background-color: rgb(173, 174, 174);
 }
 
-.Chatbot-Output{
+.Chatbot-Output {
     background-color: rgb(91, 91, 91);
     width: 400px;
     height: auto;
@@ -323,11 +319,24 @@ body.light-mode .list li .remove-item {
     border: solid 2px;
     border-radius: 10px;
     display: none;
+    padding: 10px;
+    margin-top: 20px;
 }
-.checkbox-border{
+
+.checkbox-border {
     border: 1px solid;
     border-radius: 20px;
     width: 40px;
     height: 20px;
 }
 
+.reply-box {
+    border: solid 1px #ddd;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    padding: 10px;
+    width: calc(100% - 22px);
+    font-size: 1em;
+    margin-top: 10px;
+    display: none; /* Initially hidden */
+}

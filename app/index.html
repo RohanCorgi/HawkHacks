@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pantry App</title>
-    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/jpg" href="Images/Pantry_169.png">
 </head>
 
@@ -19,16 +19,14 @@
                 <div class="content">
                     <a href="login-signup.html">Home</a>
                     <a href="shopping_list.html">Shopping List</a>
-                    <a href="Chatbot.html">Chatbot</a>
+                    <a href="index.html">Pantry</a>
                 </div>
             </div>
             <div class="title">
                 <header>
-                    <h1 id="pantry_title">Pantry</h1>
-                </håeader>
+                    <h1 id="pantry_title">Chatbot</h1>
+                </header>
             </div>
-
-
             <div class="checkbox-border">
                 <div class="mode-toggle">
                     <input type="checkbox" id="mode-toggle-checkbox">
@@ -38,13 +36,14 @@
         </div>
 
         <div class="all_searches">
-            <input type="text" id="enter_food" class="item-input" placeholder="Enter Food Item">
-            <input type="number" id="enter_quantity" class="item-input" min="1" value="1" placeholder="Quantity">
-            <input type="text" id="search_bar" placeholder="Search Bar">
-            <button class="add-item" onclick="addItem(false)">Add Item</button>
+            <input type="text" id="enter_prompt" class="item-input" placeholder="Ask Me About Food!">
+            <button class="add-item" onclick="chat()">Enter</button>
 
-            <ul id="itemlist" class="list"></ul>
-
+            <div class="Chatbot-Output">
+                <div class="reply-box">
+                    <!-- Chatbot responses will appear here -->
+                </div>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>
