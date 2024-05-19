@@ -136,7 +136,7 @@ function login() {
         fetch(`http://localhost:3000/api/users/${token}/`)
         .then((response) => (response.json()))
         .then((response) => {
-            alert(response)
+            localStorage.setItem('items',response.items)
         })
     } else {
 
@@ -165,7 +165,8 @@ function signup() {
 }
 
 function updateUser() {
-    var token = localStorage.getItem()
+    var token = localStorage.getItem('token')
+
 }
 
 function chat() {
@@ -181,7 +182,7 @@ function chat() {
         })
     })
     .then((response) => (response.text()))
-    .then((text) => document.getElementById('Chatbot-Output').innerText+='\n'+text)
+    .then((text) => document.getElementById('Chatbot-Output').innerText+='\n____________________\n'+text)
 }
 
 /**
