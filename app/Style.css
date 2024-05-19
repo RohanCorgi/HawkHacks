@@ -39,7 +39,7 @@ body.light-mode {
 .container,
 .shopping-list-container .container,
 .shopping-list-container {
-    background-color: rgb(153, 153, 153);
+    background-color: rgb(100, 100, 100);
     height: auto;
     width: auto;
     max-width: 500px;
@@ -138,6 +138,11 @@ body.light-mode .slider {
     width: calc(100% - 22px);
     margin-bottom: 10px;
     font-size: 1em;
+    background-color:#adacac;
+}
+
+body.light-mode .item-input{
+    background-color: #d0cdcd;
 }
 
 #enter_food,
@@ -356,4 +361,18 @@ body.light-mode .Chatbot-Output{
    justify-content: space-between;
    border: 1px solid white;
    margin-top: 10px;
+   font-weight: bold;
+   font-family: Dosis;
+}
+
+body.light-mode .clear_button{
+    background-color: #b8b6b6;
+    color: #333;
+}
+.clear_button:hover{
+    background-color: #6d6b6b; 
+}
+
+body.light-mode .clear_button:hover{
+    background-color: #9c9c9c;
 }
