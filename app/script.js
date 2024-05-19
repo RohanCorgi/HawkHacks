@@ -47,6 +47,7 @@ function addItem(is_shopping_list) {
         }
     })
     foods_info = foods
+    localStorage.setItem('pantry_items', JSON.stringify(foods_info))
     if (ret) return;
 
     const newItem = document.createElement('li');
@@ -75,9 +76,8 @@ function addItem(is_shopping_list) {
                     break
                 }
             }
-            console.log(foods_info)
+            localStorage.setItem('pantry_items', JSON.stringify(foods_info))
         });
-        // TODO: Make it save to local storage
     } else {
         newItem.querySelectorAll('.item-quantity, .item-name').forEach((e) => {
             e.style.color = text_colors[color]
@@ -97,6 +97,7 @@ function removeItem(button) {
             break
         }
     }
+    localStorage.setItem('pantry_items', JSON.stringify(foods_info))
 }
 
 function clearExpiry(button) {
@@ -109,6 +110,7 @@ function clearExpiry(button) {
             break
         }
     }
+    localStorage.setItem('pantry_items', JSON.stringify(foods_info))
 }
 
 /**
