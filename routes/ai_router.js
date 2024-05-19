@@ -16,13 +16,16 @@ async function generateRecommendations(prompt) {
 }
 
 const router = express.Router()
-router.post('/api/chat', async function (req, res) {
+router.post('/api/chat', async (req, res) => {
+    console.log(req)
     try {
       const recommendations = await generateRecommendations(req.body.prompt)
       res.status(200).send(recommendations)  
     } catch (error) {
       console.log(error)
       res.status(500).send('Sorry, there was an error while generating the response')
+      console.log(req)
+      console.log('that was the req')
     }
 })
 
