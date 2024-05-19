@@ -119,7 +119,7 @@ body.light-mode .title {
     transition: transform 0.3s ease, background-color 0.3s;
 }
 
-input[type="checkbox"]:checked + .slider::before {
+input[type="checkbox"]:checked+.slider::before {
     background-color: #ffeb3b;
     transform: translateX(20px);
     background-image: url('Images/sun-removebg-preview.png');
@@ -138,10 +138,10 @@ body.light-mode .slider {
     width: calc(100% - 22px);
     margin-bottom: 10px;
     font-size: 1em;
-    background-color:#adacac;
+    background-color: #adacac;
 }
 
-body.light-mode .item-input{
+body.light-mode .item-input {
     background-color: #d0cdcd;
 }
 
@@ -152,7 +152,8 @@ body.light-mode .item-input{
     color: black;
 }
 
-body.light-mode #enter_food:hover, #enter_quantity:hover {
+body.light-mode #enter_food:hover,
+#enter_quantity:hover {
     background-color: #dcdada;
 }
 
@@ -311,7 +312,8 @@ body.light-mode .list li .remove-item {
     border-radius: 5px;
 }
 
-.signup, .login {
+.signup,
+.login {
     border-radius: 10px;
     background-color: rgb(173, 174, 174);
 }
@@ -327,7 +329,7 @@ body.light-mode .list li .remove-item {
     color: white;
 }
 
-body.light-mode .Chatbot-Output{
+body.light-mode .Chatbot-Output {
     background-color: #e2e1e1;
     color: #000000;
 }
@@ -347,31 +349,32 @@ body.light-mode .Chatbot-Output{
     width: calc(100% - 22px);
     font-size: 1em;
     margin-top: 10px;
-    display: none; /* Initially hidden */
+    display: none;
 }
 
-.clear_button{
-   background-color: #555; 
-   color: white;
-   border-radius: 20px;
-   height: 20px;
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-   border: 1px solid white;
-   margin-top: 10px;
-   font-weight: bold;
-   font-family: Dosis;
+.clear_button {
+    background-color: #555;
+    color: white;
+    border-radius: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid white;
+    margin-top: 10px;
+    font-weight: bold;
+    font-family: Dosis;
 }
 
-body.light-mode .clear_button{
+body.light-mode .clear_button {
     background-color: #b8b6b6;
     color: #333;
 }
-.clear_button:hover{
-    background-color: #6d6b6b; 
+
+.clear_button:hover {
+    background-color: #6d6b6b;
 }
 
-body.light-mode .clear_button:hover{
+body.light-mode .clear_button:hover {
     background-color: #9c9c9c;
 }

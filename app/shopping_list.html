@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="Shopping_list_stylesheet.css">
     <link rel="icon" type="image/jpg" href="Images/Pantry_169.png">
 </head>
+
 <body>
     <div class="container">
         <div class="title-container">
@@ -15,7 +17,7 @@
                     <img src="Images/Ham-Button.png" alt="Menu Button">
                 </button>
                 <div class="content">
-                    <a href="login-signup.html">Home</a>
+                    <a href="login-signup.html">login/Signup</a>
                     <a href="index.html">Pantry</a>
                     <a href="Chatbot.html">Chatbot</a>
                 </div>
@@ -23,9 +25,11 @@
             <div class="title">
                 <h1 id="Shopping_list_title">Shopping List</h1>
             </div>
-            <div class="mode-toggle">
-                <input type="checkbox" id="mode-toggle-checkbox">
-                <label for="mode-toggle-checkbox" class="slider"></label>
+            <div class="checkbox-border">
+                <div class="mode-toggle">
+                    <input type="checkbox" id="mode-toggle-checkbox">
+                    <label for="mode-toggle-checkbox" class="slider"></label>
+                </div>
             </div>
         </div>
 
@@ -36,7 +40,7 @@
             </div>
 
             <input type="text" id="search_bar" placeholder="Search Bar">
-            <div class="button-group"> <!-- New wrapper div -->
+            <div class="button-group">
                 <button class="add-item" id="additemid" onclick="addItem(true)">Add Item</button>
                 <button id="add_header" class="More-header" onclick="addHeader()">Add Header</button>
                 <div class="pick">
@@ -60,4 +64,5 @@
         a.onkeypress = headerKey(a)
     </script>
 </body>
+
 </html>

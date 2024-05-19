@@ -37,15 +37,26 @@ function addItem(is_shopping_list) {
             ret = true;
             quantity_elm.innerText = Number(quantity_elm.innerText) + quantity
         }
-        if (!is_shopping_list) {
-            foods.push({
-                name: v.innerText,
-                quantity: Number(quantity_elm.innerText),
-                expiry: document.querySelectorAll('#itemlist li .expiry-date')[idx].value
-            })
-            console.log(foods)
+        let obj = {
+            name: v.innerText,
+            quantity: Number(quantity_elm.innerText),
         }
+        if (!is_shopping_list) {
+            obj.expiry = document.querySelectorAll('#itemlist li .expiry-date')[idx].value
+        }
+        foods.push(obj)
+        console.log(foods)
     })
+    if (!ret) {
+        let obj = {
+            name: food,
+            quantity: quantity,
+        }
+        if (!is_shopping_list) {
+            obj.expiry = null
+        }
+        foods.push(obj)
+    }
     foods_info = foods
     localStorage.setItem('pantry_items', JSON.stringify(foods_info))
     updateUser()
