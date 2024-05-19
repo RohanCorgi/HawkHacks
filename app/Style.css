@@ -345,3 +345,15 @@ body.light-mode .Chatbot-Output{
     margin-top: 10px;
     display: none; /* Initially hidden */
 }
+
+.clear_button{
+   background-color: #555; 
+   color: white;
+   border-radius: 20px;
+   height: 20px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   border: 1px solid white;
+   margin-top: 10px;
+}
