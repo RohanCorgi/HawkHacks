@@ -8,6 +8,14 @@ let text_colors = {
     black: "rgb(0, 0, 0)"
 }
 
+function generateAlphabeticalID(length) {
+    let id = '';
+    while (id.length < length) {
+        id += Math.random().toString(36).replace(/[^a-z]/g, '');
+    }
+    return id.substring(0, length);
+}
+
 function addItem(is_shopping_list) {
     const quantityElement = document.getElementById('enter_quantity');
     const quantity = Number(quantityElement.value.trim());
@@ -24,31 +32,25 @@ function addItem(is_shopping_list) {
     let ret = false;
     let foods = []
     items.forEach((v, idx) => {
+        const quantity_elm = document.querySelector(`#${v.parentElement.id} .item-quantity`);
         if (v.innerText == food) {
             ret = true;
-            var quant = document.querySelectorAll('#itemlist li .item-quantity')[idx]
-            quant.innerText = Number(quant.innerText) + quantity
+            quantity_elm.innerText = Number(quantity_elm.innerText) + quantity
         }
         if (!is_shopping_list) {
             foods.push({
                 name: v.innerText,
-                quantity: Number(document.querySelectorAll('#itemlist li .item-quantity')[idx].value),
+                quantity: Number(quantity_elm.innerText),
                 expiry: document.querySelectorAll('#itemlist li .expiry-date')[idx].value
             })
-            let a = document.querySelector('#itemlist li .expiry-date')
-            console.log(a.value)
+            console.log(foods)
         }
     })
-    if (ret) return;
-    foods.push({
-        name: food,
-        quantity: quantity,
-        expiry: null
-    })
     foods_info = foods
+    if (ret) return;
 
     const newItem = document.createElement('li');
-    newItem.id = Math.random().toString(36).substring(2, 15);  // Generate unique ID
+    newItem.id = generateAlphabeticalID(10);  // Generate unique ID
 
     // Constructing the list item HTML
     newItem.innerHTML = `
@@ -66,7 +68,6 @@ function addItem(is_shopping_list) {
         const expiryDateInput = newItem.querySelector('.expiry-date');
         expiryDateInput.addEventListener('change', () => {
             const date = document.getElementById(`expiry_date_${newItem.id}`).value;
-            // TODO: Make it update the expiry date in real time
             for (let i = 0; i < foods_info.length; i++) {
                 if (foods_info[i]["name"] == food) {
                     console.log(date)
