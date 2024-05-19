@@ -151,7 +151,7 @@ body.light-mode #enter_food:hover, #enter_quantity:hover{
 
 
 .add-item,
-.More-header {
+.More-header,.pick {
     margin: 10px 5px;
     padding: 10px 20px;
     border-radius: 10px;
@@ -287,4 +287,61 @@ body.light-mode .finished-header{
 }
 body.light-mode .item-name, .item-quantity{
     color: #fffdfd;
+}
+
+.pick {
+    width: auto; 
+    height: 20px; 
+    padding: 5px;
+    box-shadow: 0 30px 30px -15px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+ul{
+    list-style: none;
+    padding: 24px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    transition: transform 0.3s;
+}
+
+ul li{
+    width: 12px;
+    height: 12px;
+ 
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+ul li:hover{
+    transform:scale(1.1);
+}
+
+#red{
+    background-color: rgb(241, 47, 47);
+}
+
+#green{
+background-color: rgb(77, 250, 77);
+}
+#blue{
+background-color: rgb(74, 74, 243);
+}
+#white{
+background-color: white;
+}
+#black{
+background-color: rgb(0, 0, 0);
+}
+
+.button-group {
+    display: flex;
+    align-items: center; /* Vertically center the elements */
+    gap: 10px; /* Add some space between the elements */
 }
