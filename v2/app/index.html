@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantry App</title>
+    <link rel="stylesheet" href="./assets/styles/main.css">
+    <link rel="icon" type="image/jpg" href="./assets/images/Pantry_169.png">
+</head>
+
+<body>
+    <div class="container">
+        <div class="title-container">
+            <div class="dropdown">
+                <button class="dropdown_button" id="open-nav-bar">
+                    <img src="./assets/images/Ham-Button.png" width="24px" height="24px" alt="Menu Button">
+                </button>
+                <div class="content">
+                    <a href="./login-signup.html">login/Signup</a>
+                    <a href="./shopping_list.html">Shopping List</a>
+                    <a href="./chatbot.html">Chatbot</a>
+                </div>
+            </div>
+            <div class="title">
+                <header>
+                    <h1 id="pantry_title">Pantry</h1>
+                </header>
+            </div>
+
+
+            <div class="checkbox-border">
+                <div class="mode-toggle">
+                    <input type="checkbox" id="mode-toggle-checkbox">
+                    <label for="mode-toggle-checkbox" class="slider"></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="all_searches">
+            <input type="text" id="enter_food" class="item-input" placeholder="Enter Food Item">
+            <input type="number" id="enter_quantity" class="item-input" min="1" value="1" placeholder="Quantity">
+            <input type="text" id="search_bar" placeholder="Search Bar">
+            <button class="add-item" onclick="addItem(false)">Add Item</button>
+
+            <ul id="itemlist" class="list"></ul>
+
+        </div>
+    </div>
+    <script src="./assets/scripts/script.js"></script>
+</body>
+
+</html>

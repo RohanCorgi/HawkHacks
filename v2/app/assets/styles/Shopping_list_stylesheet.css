@@ -1,0 +1,356 @@
+@font-face {
+    src: url(../fonts/ChakraPetch-Light.ttf);
+    font-family: ChakraPetch;
+}
+
+@font-face {
+    src: url(../fonts/Dosis-VariableFont_wght.ttf);
+    font-family: Dosis;
+}
+
+@font-face {
+    src: url(../fonts/PoetsenOne-Regular.ttf);
+    font-family: v;
+}
+
+@font-face {
+    src: url(../fonts/TitilliumWeb-Light.ttf);
+    font-family: TitilliumWeb;
+}
+
+body {
+    font-family: 'Dosis', Arial, sans-serif;
+    background-color: #333;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+body.light-mode {
+    background-color: #fff;
+    color: #000;
+}
+
+.container,
+.shopping-list-container .container,
+.shopping-list-container {
+    background-color: rgb(100, 100, 100);
+    height: auto;
+    width: auto;
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    border: solid 5px;
+    border-radius: 10px;
+    box-shadow: 10px 5px 5px rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body.light-mode .container {
+    background-color: #dad8d8;
+}
+
+.title-container {
+    font-family: 'TitilliumWeb', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.title {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 0;
+    flex-grow: 1;
+    margin-right: 10px;
+    font-size: 1.5em;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode .title {
+    background-color: #eee;
+    color: #333;
+}
+
+.mode-toggle {
+    position: relative;
+    width: 40px;
+    height: 20px;
+}
+
+.mode-toggle input[type="checkbox"] {
+    display: none;
+}
+
+.slider {
+    width: 100%;
+    height: 100%;
+    background-color: #ddd;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.slider::before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    background-color: #333;
+    border-radius: 50%;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    background-image: url('../images/moon-removebg-preview.png');
+    background-size: cover;
+    transition: transform 0.3s ease, background-color 0.3s;
+}
+
+input[type="checkbox"]:checked + .slider::before {
+    background-color: #ffeb3b;
+    transform: translateX(20px);
+    background-image: url('../images/sun-removebg-preview.png');
+}
+
+body.light-mode .slider {
+    background-color: #bbb;
+}
+
+.item-input {
+    text-align: center;
+    border: solid 1px #ddd;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    padding: 10px;
+    width: calc(100% - 22px);
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+#enter_food,
+#enter_quantity {
+    margin-bottom: 10px;
+    background-color: #d1cece;
+    color: black;
+}
+body.light-mode #enter_food:hover, #enter_quantity:hover{
+    background-color: #dcdada;
+}
+
+
+.add-item,
+.More-header,.pick {
+    margin: 10px 5px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-item:hover,
+.More-header:hover {
+    background-color: #555;
+}
+
+body.light-mode .add-item,
+body.light-mode .More-header {
+    background-color: #bbb;
+    color: #333;
+}
+
+body.light-mode .add-item:hover,
+body.light-mode .More-header:hover {
+    background-color: #999;
+}
+
+.list {
+    text-align: center;
+    width: 100%;
+    border-radius: 10px;
+    list-style-type: none;
+    background-color: rgb(99, 98, 98);
+    height: 350px;
+    border: solid 1px #ddd;
+    overflow-y: auto;
+    padding: 0;
+    margin: 0;
+}
+body.light-mode .list{
+    background-color: rgb(184, 184, 184);
+}
+
+
+.list_header {
+    border-radius: 10px;
+    background-color: #eee;
+    padding: 10px;
+    margin: 10px;
+    width: calc(100% - 22px);
+    font-size: 1em;
+    border: 1px solid #ddd;
+}
+
+.list_header:hover {
+    background-color: #ddd;
+}
+
+body.light-mode .list_header {
+    background-color: #aaa7a7;
+}
+
+body.light-mode .list_header:hover {
+    background-color: #8a8a8a;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.dropdown_button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown img {
+    width: 24px;
+    height: 24px;
+}
+
+.dropdown .content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 100px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: display 0.3s;
+}
+
+.dropdown:hover .content {
+    display: block;
+}
+
+.dropdown a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dropdown a:hover {
+    background-color: #555;
+    color: #fff;
+}
+
+#search_bar {
+    margin: 10px 0;
+    text-align: center;
+    padding: 10px;
+    width: calc(100% - 40px);
+    display: none;
+}
+
+.finished-header{
+    color: rgb(255, 255, 255);
+    font-family:PoestsenOne;
+    font-weight: bold;
+}
+
+body.light-mode .finished-header{
+    color: #333;
+}
+
+.item-name{
+    color: white;
+}
+body.light-mode .item-name, .item-quantity{
+    color: #fffdfd;
+}
+
+.pick {
+    width: auto; 
+    height: 20px; 
+    padding: 5px;
+    box-shadow: 0 30px 30px -15px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+body.light-mode .pick{
+    background-color: #bbb;
+}
+
+ul{
+    list-style: none;
+    padding: 24px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    transition: transform 0.3s;
+}
+
+ul li{
+    width: 12px;
+    height: 12px;
+ 
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+ul li:hover{
+    transform:scale(1.5);
+}
+
+#red{
+    background-color: rgb(241, 47, 47);
+}
+
+#green{
+    background-color: rgb(77, 250, 77);
+}
+#blue{
+    background-color: rgb(74, 74, 243);
+}
+#white{
+    background-color: white;
+}
+#black{
+    background-color: rgb(0, 0, 0);
+}
+
+.button-group {
+    display: flex;
+    align-items: center; 
+    gap: 10px;
+}
+.checkbox-border {
+    border: 1px solid;
+    border-radius: 20px;
+    width: 40px;
+    height: 20px;
+}
