@@ -13,6 +13,7 @@ function generateAlphabeticalID(length) {
     while (id.length < length) {
         id += Math.random().toString(36).replace(/[^a-z]/g, '');
     }
+    console.log(id)
     return id.substring(0, length);
 }
 
@@ -23,7 +24,8 @@ function addItem(is_shopping_list) {
     const food = foodElement.value.trim();
 
     if (food === '') {
-        throw new Error('Please enter a food item');
+        alert('Please enter a food item');
+        return
     }
 
     const itemList = document.getElementById('itemlist');
@@ -172,7 +174,7 @@ function login() {
     let email = document.getElementById('email').value
     let password = document.getElementById('password').value
     let token = localStorage.getItem('token')
-    console.log('login', email, password, token)
+    // console.log('login', email, password, token)
 
     if (token) {
         fetch(`http://localhost:8080/api/users/${token}`)
@@ -193,7 +195,7 @@ function login() {
         .then((response) => {
             localStorage.setItem('pantry_items',JSON.stringify(response.pantry_items))
             localStorage.setItem('shopping_list',JSON.stringify(response.shopping_list))
-            localStorage.setItem('token',JSON.stringify(response.token))
+            localStorage.setItem('token',response.token)
         })
     }
 }
