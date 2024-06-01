@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantry App Login/Signup</title>
+    <link rel="stylesheet" href="./assets/styles/main.css">
+    <link rel="icon" type="image/jpg" href="./assets/images/Pantry_169.png">
+</head>
+
+<body>
+    <div class="container">
+        <div class="title-container">
+            <div class="dropdown">
+                <button class="dropdown_button" id="open-nav-bar">
+                    <img src="./assets/images/Ham-Button.png" width="24px" height="24px" alt="Menu Button">
+                </button>
+                <div class="content">
+                    <a href="index.html">Pantry</a>
+                    <a href="shopping_list.html">Shopping List</a>
+                    <a href="chatbot.html">Chatbot</a>
+                </div>
+            </div>
+            <div class="title">
+                <header>
+                    <h1 id="pantry_title">Pantry Login/Sign Up</h1>
+                </header>
+            </div>
+            <div class="checkbox-border">
+                <div class="mode-toggle">
+                    <input type="checkbox" id="mode-toggle-checkbox">
+                    <label for="mode-toggle-checkbox" class="slider"></label>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="all_searches">
+            <input type="email" id="email" class="item-input" placeholder="Enter your email">
+            <input type="password" id="password" name="pass" class="item-input" placeholder="Enter your password">
+            <input type="text" id="search_bar" placeholder="Search Bar">
+            <div id="buttons">
+                <button class="login" id="login" onclick="login()">Login</button>
+                <button class="signup" id="signup" onclick="signup()">Sign Up</button>
+                <button class="signup" id="logout" onclick="logout()">Logout</button>
+            </div>
+            <ul id="itemlist" class="list"></ul>
+        </div>
+    </div>
+    <script>
+
+    </script>
+
+    <script src="./assets/scripts/script.js"></script>
+</body>
+
+</html>

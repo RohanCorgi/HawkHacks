@@ -1,0 +1,25 @@
+{
+  "name": "pantry-master-v2",
+  "version": "2.0.0",
+  "description": "Version 2 of the pantry master app with better code",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RohanCorgi/HawkHacks.git#main"
+  },
+  "author": "SigmaAlpha Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RohanCorgi/HawkHacks/issues"
+  },
+  "homepage": "https://github.com/RohanCorgi/HawkHacks/tree/main/v2/app/index.html",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.4.0",
+    "openai": "^4.47.1"
+  }
+}
