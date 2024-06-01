@@ -1,3 +1,4 @@
+/* Fonts */
 @font-face {
     src: url(fonts/ChakraPetch-Light.ttf);
     font-family: ChakraPetch;
@@ -10,7 +11,7 @@
 
 @font-face {
     src: url(fonts/PoetsenOne-Regular.ttf);
-    font-family: v;
+    font-family: PoetsenOne;
 }
 
 @font-face {
@@ -18,6 +19,7 @@
     font-family: TitilliumWeb;
 }
 
+/* General Styles */
 body {
     font-family: 'Dosis', Arial, sans-serif;
     background-color: #333;
@@ -145,13 +147,16 @@ body.light-mode .slider {
     background-color: #d1cece;
     color: black;
 }
-body.light-mode #enter_food:hover, #enter_quantity:hover{
+
+body.light-mode #enter_food:hover, 
+body.light-mode #enter_quantity:hover {
     background-color: #dcdada;
 }
 
-
+/* Add Button */
 .add-item,
-.More-header,.pick {
+.More-header, 
+.pick {
     margin: 10px 5px;
     padding: 10px 20px;
     border-radius: 10px;
@@ -178,6 +183,7 @@ body.light-mode .More-header:hover {
     background-color: #999;
 }
 
+/* List */
 .list {
     text-align: center;
     width: 100%;
@@ -190,10 +196,10 @@ body.light-mode .More-header:hover {
     padding: 0;
     margin: 0;
 }
+
 body.light-mode .list{
     background-color: rgb(184, 184, 184);
 }
-
 
 .list_header {
     border-radius: 10px;
@@ -217,6 +223,7 @@ body.light-mode .list_header:hover {
     background-color: #8a8a8a;
 }
 
+/* Dropdown */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -265,6 +272,7 @@ body.light-mode .list_header:hover {
     color: #fff;
 }
 
+/* Search Bar */
 #search_bar {
     margin: 10px 0;
     text-align: center;
@@ -273,23 +281,26 @@ body.light-mode .list_header:hover {
     display: none;
 }
 
-.finished-header{
+.finished-header {
     color: rgb(255, 255, 255);
-    font-family:PoestsenOne;
+    font-family: PoetsenOne;
     font-weight: bold;
 }
 
-body.light-mode .finished-header{
+body.light-mode .finished-header {
     color: #333;
 }
 
-.item-name{
+.item-name {
     color: white;
 }
-body.light-mode .item-name, .item-quantity{
+
+body.light-mode .item-name, 
+.item-quantity {
     color: #fffdfd;
 }
 
+/* Pick */
 .pick {
     width: auto; 
     height: 20px; 
@@ -301,11 +312,12 @@ body.light-mode .item-name, .item-quantity{
     align-items: center;
 }
 
-body.light-mode .pick{
+body.light-mode .pick {
     background-color: #bbb;
 }
 
-ul{
+/* Color Circles */
+ul {
     list-style: none;
     padding: 24px;
     display: grid;
@@ -314,40 +326,45 @@ ul{
     transition: transform 0.3s;
 }
 
-ul li{
+ul li {
     width: 12px;
     height: 12px;
- 
     border-radius: 50%;
     cursor: pointer;
 }
 
-ul li:hover{
-    transform:scale(1.5);
+ul li:hover {
+    transform: scale(1.5);
 }
 
-#red{
+#red {
     background-color: rgb(241, 47, 47);
 }
 
-#green{
+#green {
     background-color: rgb(77, 250, 77);
 }
-#blue{
+
+#blue {
     background-color: rgb(74, 74, 243);
 }
-#white{
+
+#white {
     background-color: white;
 }
-#black{
+
+#black {
     background-color: rgb(0, 0, 0);
 }
 
+/* Button Group */
 .button-group {
     display: flex;
     align-items: center; 
     gap: 10px;
 }
+
+/* Checkbox Border */
 .checkbox-border {
     border: 1px solid;
     border-radius: 20px;
