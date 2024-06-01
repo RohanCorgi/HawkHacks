@@ -1,13 +1,17 @@
-var foods_info = []
-var color = 'black'
-let text_colors = {
+// Define global variables
+let foodsInfo = [];
+let color = 'black';
+
+// Define text colors
+const textColors = {
     red: "rgb(241, 47, 47)",
     green: "rgb(77, 250, 77)",
     blue: "rgb(74, 74, 243)",
     white: "white",
     black: "rgb(0, 0, 0)"
-}
+};
 
+// Generate a random alphabetical ID
 function generateAlphabeticalID(length) {
     let id = '';
     while (id.length < length) {
@@ -16,266 +20,256 @@ function generateAlphabeticalID(length) {
     return id.substring(0, length);
 }
 
-function addItem(is_shopping_list) { //Shopping list code
+// Add item to either pantry or shopping list
+function addItem(isShoppingList) {
     const quantityElement = document.getElementById('enter_quantity');
     const quantity = Number(quantityElement.value.trim());
     const foodElement = document.getElementById('enter_food');
     const food = foodElement.value.trim();
 
-    if (food === '') {
+    if (!food) {
         throw new Error('Please enter a food item');
     }
 
     const itemList = document.getElementById('itemlist');
+    const items = itemList.querySelectorAll('li .item-name');
+    let found = false;
 
-    const items = document.querySelectorAll('#itemlist li .item-name')
-    let ret = false;
-    let foods = []
-    items.forEach((v, idx) => {
-        const quantity_elm = document.querySelector(`#${v.parentElement.id} .item-quantity`);
-        if (v.innerText == food) {
-            ret = true;
-            quantity_elm.innerText = Number(quantity_elm.innerText) + quantity
+    const updatedFoods = [...foodsInfo];
+
+    items.forEach((item, idx) => {
+        const quantityElm = itemList.querySelector(`#${item.parentElement.id} .item-quantity`);
+        if (item.innerText === food) {
+            found = true;
+            quantityElm.innerText = Number(quantityElm.innerText) + quantity;
         }
-        let obj = {
-            name: v.innerText,
-            quantity: Number(quantity_elm.innerText),
+        const obj = {
+            name: item.innerText,
+            quantity: Number(quantityElm.innerText),
+        };
+        if (!isShoppingList) {
+            obj.expiry = itemList.querySelectorAll('li .expiry-date')[idx].value;
         }
-        if (!is_shopping_list) {
-            obj.expiry = document.querySelectorAll('#itemlist li .expiry-date')[idx].value
-        }
-        foods.push(obj)
-        console.log(foods)
-    })
-    if (!ret) {
-        let obj = {
+        updatedFoods.push(obj);
+    });
+
+    if (!found) {
+        const obj = {
             name: food,
-            quantity: quantity,
-        }
-        if (!is_shopping_list) {
-            obj.expiry = null
-        }
-        foods.push(obj)
+            quantity,
+            expiry: isShoppingList ? null : document.querySelector('.expiry-date').value,
+        };
+        updatedFoods.push(obj);
     }
-    foods_info = foods
-    let save_to = 'pantry_items'
-    if (is_shopping_list) save_to = 'shopping_list'
-    localStorage.setItem(save_to, JSON.stringify(foods_info))
-    updateUser()
-    if (ret) return;
+
+    foodsInfo = updatedFoods;
+    const saveTo = isShoppingList ? 'shopping_list' : 'pantry_items';
+    localStorage.setItem(saveTo, JSON.stringify(foodsInfo));
+    updateUser();
+
+    if (found) return;
 
     const newItem = document.createElement('li');
-    newItem.id = generateAlphabeticalID(10);  // Generate unique ID
+    newItem.id = generateAlphabeticalID(10);
 
-    // Constructing the list item HTML
     newItem.innerHTML = `
         <span class="item-quantity">${quantity}</span>
         <span class="item-name">${food}</span>
     `;
 
-    if (!is_shopping_list) {
+    if (!isShoppingList) {
         newItem.innerHTML += `
-            <input type="date" id="expiry_date_${newItem.id}" class="expiry-date">
-            <button class="remove-item" onclick="removeItem(this)">Remove</button>
-            <button class="clear-expiry" onclick="clearExpiry(this)">Clear Expiry</button>
-        ` // dont delete this line
-        // Update expiry date span on item addition (optional)
+            <input type="date" class="expiry-date">
+            <button class="remove-item">Remove</button>
+            <button class="clear-expiry">Clear Expiry</button>
+        `;
         const expiryDateInput = newItem.querySelector('.expiry-date');
         expiryDateInput.addEventListener('change', () => {
-            const date = document.getElementById(`expiry_date_${newItem.id}`).value;
-            for (let i = 0; i < foods_info.length; i++) {
-                if (foods_info[i]["name"] == food) {
-                    console.log(date)
-                    foods_info[i]["expiry"] = date
-                    break
+            const date = expiryDateInput.value;
+            for (const foodObj of foodsInfo) {
+                if (foodObj.name === food) {
+                    foodObj.expiry = date;
+                    break;
                 }
             }
-            localStorage.setItem('pantry_items', JSON.stringify(foods_info))
-            updateUser()
+            localStorage.setItem('pantry_items', JSON.stringify(foodsInfo));
+            updateUser();
         });
     } else {
-        newItem.querySelectorAll('.item-quantity, .item-name').forEach((e) => {
-            e.style.color = text_colors[color]
-        })
+        newItem.querySelectorAll('.item-quantity, .item-name').forEach((element) => {
+            element.style.color = textColors[color];
+        });
     }
 
     itemList.appendChild(newItem);
 }
 
-function removeItem(button) { // Remove Button 
+// Remove item from list
+function removeItem(button) {
     button.parentElement.remove();
-    let name = button.parentElement.querySelector('.item-name').innerText
-    console.log(name)
-    for (let i = 0; i < foods_info.length; i++) {
-        if (foods_info[i].name === name) {
-            foods_info.splice(i, 1);
-            break
-        }
-    }
-    localStorage.setItem('pantry_items', JSON.stringify(foods_info))
-    updateUser()
+    const name = button.parentElement.querySelector('.item-name').innerText;
+    const updatedFoods = foodsInfo.filter((item) => item.name !== name);
+    foodsInfo = updatedFoods;
+    localStorage.setItem('pantry_items', JSON.stringify(foodsInfo));
+    updateUser();
 }
 
-function clearExpiry(button) { // Expiry
+// Clear expiry date of an item
+function clearExpiry(button) {
     const expiryInput = button.parentElement.querySelector('.expiry-date');
-    expiryInput.value = "";
-    let name = button.parentElement.querySelector('.item-name').innerText
-    for (let i = 0; i < foods_info.length; i++) {
-        if (foods_info[i].name === name) {
-            foods_info[i].expiry = null
-            break
+    expiryInput.value = '';
+    const name = button.parentElement.querySelector('.item-name').innerText;
+    const updatedFoods = foodsInfo.map((item) => {
+        if (item.name === name) {
+            item.expiry = null;
         }
-    }
-    localStorage.setItem('pantry_items', JSON.stringify(foods_info))
-    updateUser()
+        return item;
+    });
+    foodsInfo = updatedFoods;
+    localStorage.setItem('pantry_items', JSON.stringify(foodsInfo));
+    updateUser();
 }
 
-/**
- * @param {HTMLInputElement} header
- */
+// Handle key events for header input
 function headerKey(header) {
-    /**
-     * @param {KeyboardEvent} e 
-     * @returns 
-     */
-    function eventHandler(e) {
-        var keyCode = e.code || e.key;
+    return (e) => {
+        const keyCode = e.code || e.key;
         if (keyCode !== 'Enter') {
             return;
         }
-        let new_header = document.createElement('span')
-        new_header.classList.add('finished-header')
-        new_header.innerText = header.value
-        header.replaceWith(new_header)
-    }
-    return eventHandler
+        const newHeader = document.createElement('span');
+        newHeader.classList.add('finished-header');
+        newHeader.innerText = header.value;
+        header.replaceWith(newHeader);
+    };
 }
 
+// Add header to list
 function addHeader() {
-    let header = document.createElement('input')
-    header.type = 'text'
-    header.placeholder = 'type your header/title here!'
-    header.classList.add('list_header')
-    let list = document.getElementById('itemlist')
-    let br = document.createElement('br')
-    list.appendChild(header)
-    list.appendChild(br)
+    const header = document.createElement('input');
+    header.type = 'text';
+    header.placeholder = 'Type your header/title here!';
+    header.classList.add('list_header');
+    const list = document.getElementById('itemlist');
+    const br = document.createElement('br');
+    list.appendChild(header);
+    list.appendChild(br);
 
-    header.addEventListener('keypress', headerKey(header))
+    header.addEventListener('keypress', headerKey(header));
 }
 
+// Toggle light mode
 document.getElementById('mode-toggle-checkbox').addEventListener('change', function() {
     document.body.classList.toggle('light-mode', this.checked);
 });
 
+// User login
 function login() {
-    let email = document.getElementById('email').value
-    let password = document.getElementById('password').value
-    let token = localStorage.getItem('token')
-    console.log('login', email, password, token)
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const token = localStorage.getItem('token');
 
     if (token) {
         fetch(`http://localhost:3000/api/users/${token}/`)
-        .then((response) => (response.json()))
-        .then((response) => {
-            localStorage.setItem('pantry_items',JSON.stringify(response.pantry_items))
-            localStorage.setItem('shopping_list',JSON.stringify(response.shopping_list))
-        })
+            .then((response) => response.json())
+            .then((response) => {
+                localStorage.setItem('pantry_items', JSON.stringify(response.pantry_items));
+                localStorage.setItem('shopping_list', JSON.stringify(response.shopping_list));
+            });
     } else {
         fetch(`http://localhost:3000/api/users/getByEmail/${email}`, {
-            method: "POST",
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({password: password})
+            body: JSON.stringify({ password })
         })
-        .then(response => (response.json()))
-        .then((response) => {
-            localStorage.setItem('pantry_items',JSON.stringify(response.pantry_items))
-            localStorage.setItem('shopping_list',JSON.stringify(response.shopping_list))
-            localStorage.setItem('token',JSON.stringify(response.token))
-        })
+            .then(response => response.json())
+            .then((response) => {
+                localStorage.setItem('pantry_items', JSON.stringify(response.pantry_items));
+                localStorage.setItem('shopping_list', JSON.stringify(response.shopping_list));
+                localStorage.setItem('token', JSON.stringify(response.token));
+            });
     }
 }
 
+// User logout
 function logout() {
-    localStorage.setItem('token', '')
+    localStorage.setItem('token', '');
 }
 
-function storageToList (){
-    pantry_items = localStorage.getItem('pantry_items')
-    shopping_list = localStorage.getItem('shopping_list')
-
-
-}
-
+// Sign up user
 function signup() {
-    let email = document.getElementById('email').value;
-    let password = document.getElementById('password').value;
-    var items = JSON.parse(localStorage.getItem('pantry_items'))
-    var shopping_list = JSON.parse(localStorage.getItem('shopping_list'))
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const items = JSON.parse(localStorage.getItem('pantry_items')) || [];
+    const shoppingList = JSON.parse(localStorage.getItem('shopping_list')) || [];
 
     fetch(`http://localhost:3000/api/users/`, {
-        method: "POST",
+        method: 'POST',
         headers: {
-            "Content-Type": "application/json"
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            email: email,
-            password: password,
-            pantry_items: items || [],
-            shopping_list: shopping_list || [] //Get a list with objects
+            email,
+            password,
+            pantry_items: items,
+            shopping_list: shoppingList
         })
     })
-    .then((response) => response.text())
-    .then((response) => {
-        localStorage.setItem('token', response)
-    })
+        .then((response) => response.text())
+        .then((response) => {
+            localStorage.setItem('token', response);
+        });
 }
 
+// Update user data
 function updateUser() {
-    var token = localStorage.getItem('token')
-    var items = JSON.parse(localStorage.getItem('pantry_items'))
-    var shopping_list = JSON.parse(localStorage.getItem('shopping_list'))
+    const token = localStorage.getItem('token');
+    const items = JSON.parse(localStorage.getItem('pantry_items'));
+    const shoppingList = JSON.parse(localStorage.getItem('shopping_list'));
 
     fetch(`http://localhost:3000/api/users/${token}`, {
-        method: "PUT",
+        method: 'PUT',
         headers: {
-            "Content-Type": "application/json"
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({
             pantry_items: items,
-            shopping_list: shopping_list
+            shopping_list: shoppingList
         })
     })
-    .then((response) => (response.text()))
-    .then((response) => {
-        console.log(response)
-    })
+        .then((response) => response.text())
+        .then((response) => {
+            console.log(response);
+        });
 }
 
+// Send chat prompt
 function chat() {
-    var chat_prompt = document.getElementById('enter_prompt').value
-    console.log(chat_prompt)
+    const chatPrompt = document.getElementById('enter_prompt').value;
     fetch(`http://localhost:3000/api/chat/`, {
-        method: "POST",
+        method: 'POST',
         headers: {
-            "Content-Type": "application/json"
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            prompt: chat_prompt
+            prompt: chatPrompt
         })
     })
-    .then((response) => (response.text()))
-    .then((text) => document.getElementById('Chatbot-Output').innerText+='\n____________________\n'+text)
+        .then((response) => response.text())
+        .then((text) => {
+            const chatbotOutput = document.getElementById('Chatbot-Output');
+            chatbotOutput.innerText += '\n____________________\n' + text;
+        });
 }
 
-/**
- * @param {HTMLLIElement} color_elm 
- */
-function color_change(color_elm) {
-    let colors = document.querySelectorAll('.color-item')
-    colors.forEach((c) => {c.classList.remove('selected-color')})
-    color_elm.classList.add('selected-color')
-    color = color_elm.id
+// Change text color
+function colorChange(colorElm) {
+    const colors = document.querySelectorAll('.color-item');
+    colors.forEach((color) => {
+        color.classList.remove('selected-color');
+    });
+    colorElm.classList.add('selected-color');
+    color = colorElm.id;
 }
