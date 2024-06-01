@@ -16,7 +16,7 @@ function generateAlphabeticalID(length) {
     return id.substring(0, length);
 }
 
-function addItem(is_shopping_list) {
+function addItem(is_shopping_list) { //Shopping list code
     const quantityElement = document.getElementById('enter_quantity');
     const quantity = Number(quantityElement.value.trim());
     const foodElement = document.getElementById('enter_food');
@@ -102,7 +102,7 @@ function addItem(is_shopping_list) {
     itemList.appendChild(newItem);
 }
 
-function removeItem(button) {
+function removeItem(button) { // Remove Button 
     button.parentElement.remove();
     let name = button.parentElement.querySelector('.item-name').innerText
     console.log(name)
@@ -116,7 +116,7 @@ function removeItem(button) {
     updateUser()
 }
 
-function clearExpiry(button) {
+function clearExpiry(button) { // Expiry
     const expiryInput = button.parentElement.querySelector('.expiry-date');
     expiryInput.value = "";
     let name = button.parentElement.querySelector('.item-name').innerText
