@@ -54,7 +54,10 @@ function addItemToPantry(item) {
             localStorage.setItem('pantry_items', JSON.stringify(foods_info))
             updateUser()
         } else {
-            if (quantity < 1) return;
+            if (quantity < 1) {
+                alert('You cannot do that');
+                return
+            }
             //Add item to list
             const newItem = document.createElement('li')
             newItem.innerHTML = `

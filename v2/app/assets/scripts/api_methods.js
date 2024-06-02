@@ -4,8 +4,10 @@ function loginByToken() {
         fetch(`http://localhost:8080/api/users/${token}`)
         .then((response) => (response.json()))
         .then((response) => {
-            localStorage.setItem('pantry_items', JSON.stringify(response.pantry_items))
-            localStorage.setItem('shopping_list', JSON.stringify(response.shopping_list))
+            if (response.message == 'Successful') {
+                localStorage.setItem('pantry_items', JSON.stringify(response.content.pantry_items))
+                localStorage.setItem('shopping_list', JSON.stringify(response.content.shopping_list))
+            }
         })
     }
 }
@@ -22,13 +24,17 @@ function login() {
         })
         .then(response => (response.json()))
         .then((response) => {
-            localStorage.setItem('pantry_items',JSON.stringify(response.pantry_items))
-            localStorage.setItem('shopping_list',JSON.stringify(response.shopping_list))
-            localStorage.setItem('token',response.token)
+            alert(response.message)
+            if (response.message == 'Successful') {
+                localStorage.setItem('pantry_items',JSON.stringify(response.content.pantry_items))
+                localStorage.setItem('shopping_list',JSON.stringify(response.content.shopping_list))
+                localStorage.setItem('token',response.content.token)
+                document.getElementById('login').style.display = "none";
+                document.getElementById('signup').style.display = "none";
+                document.getElementById('logout').style.display = "block";
+            }
+            
         })
-    document.getElementById('login').style.display = "none";
-    document.getElementById('signup').style.display = "none";
-    document.getElementById('logout').style.display = "block";
 }
 
 function logout() {
@@ -57,12 +63,15 @@ function signup() {
             shopping_list: shopping_list || [] //Get a list with objects
         })
     })
-    .then((response) => response.text())
+    .then((response) => response.json())
     .then((response) => {
-        if (response == "This account already exists") {
-            alert("This account already exists")
+        console.log(response)
+        if (response.message == 'Successful') {
+            localStorage.setItem('token', response.content.token)
+            document.getElementById('login').style.display = "none";
+            document.getElementById('signup').style.display = "none";
+            document.getElementById('logout').style.display = "block";
         }
-        localStorage.setItem('token', response)
     })
 }
 
@@ -81,9 +90,9 @@ function updateUser() {
             shopping_list: shopping_list
         })
     })
-    .then((response) => (response.text()))
+    .then((response) => (response.json()))
     .then((response) => {
-        console.log(response)
+        console.log(response.message)
     })
 }
 
@@ -99,6 +108,12 @@ function chat() {
             prompt: chat_prompt
         })
     })
-    .then((response) => (response.text()))
-    .then((text) => document.getElementById('Chatbot-Output').innerText+='\n____________________\n'+text)
+    .then((response) => (response.json()))
+    .then((response) => {
+        if (response.message == "Successful") {
+            document.getElementById('Chatbot-Output').innerText+='\n____________________\n'+response.content.choices[0].message.content
+        } else {
+            alert(response.message)
+        }
+    })
 }
