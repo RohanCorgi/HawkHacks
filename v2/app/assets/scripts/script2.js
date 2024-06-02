@@ -26,9 +26,6 @@ function addItemToPantry(item) {
         if (item.expiry) {
             itemElement.querySelector('.expiry-date').value = item.expiry.slice(0, 10)
         }
-        
-        //expiryDateInput.addEventListener('change', updateExpiry(expiryDateInput, item))
-        
         itemList.appendChild(itemElement)
     } else { //If not from localStorage, it will be from input
         const quantityElement = document.getElementById('enter_quantity');
