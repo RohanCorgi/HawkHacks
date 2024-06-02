@@ -47,12 +47,17 @@ function addItemToPantry(item) {
         if (itemInList) {
             const quantity_elm = itemInList.parentElement.querySelector(`.item-quantity`);
             quantity_elm.innerText = Number(quantity_elm.outerText) + quantity
+            if (Number(quantity_elm.innerText) < 1) {
+                removeItemFromPantry(itemInList.parentElement.querySelector('.remove-item'))
+                return
+            }
             //update localStorage
             const foods_info = JSON.parse(localStorage.getItem('pantry_items'))
             foods_info.find(i => i.name === food).quantity = quantity_elm.innerText
             localStorage.setItem('pantry_items', JSON.stringify(foods_info))
             updateUser()
         } else {
+            if (quantity < 1) return;
             //Add item to list
             const newItem = document.createElement('li')
             newItem.innerHTML = `

@@ -46,6 +46,11 @@ function addItem(is_shopping_list) {
         if (!is_shopping_list) {
             obj.expiry = document.querySelectorAll('#itemlist li .expiry-date')[idx].value
         }
+        if (Number(quantity.innerText) < 1) {
+            removeItem(document.querySelector(`#${v.parentElement.id} .remove-item`))
+            console.log('removing..')
+            return;
+        }
         foods.push(obj)
         console.log(foods)
     })
